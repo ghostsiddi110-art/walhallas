@@ -206,6 +206,13 @@
         <span class="text-sm text-white/40 uppercase tracking-[0.2em]">Updated daily</span>
       </div>
       <div id="blogResearchContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="blogArticleDetail" class="glass-card rounded-2xl p-8 mt-10 hidden">
+        <span id="detailBlogRegion" class="text-brand-red text-xs font-bold uppercase tracking-wider"></span>
+        <h3 id="detailBlogTitle" class="text-3xl md:text-4xl font-display font-bold text-white mt-3 mb-4"></h3>
+        <p id="detailBlogContent" class="text-white/70 leading-relaxed text-base md:text-lg"></p>
+        <p id="detailBlogHighlight" class="text-white/60 text-sm mt-6"></p>
+        <button id="closeBlogDetail" type="button" class="mt-8 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition">Close</button>
+      </div>
     </section>
   </div>
 
@@ -396,42 +403,48 @@
         region: "Karachi",
         date: "Today",
         summary: "A cultural deep dive into Karachi's street football scene, where coastal neighborhoods and local markets shape a fearless playing style.",
-        highlight: "From Saddar lanes to Clifton sands, Karachi's football culture blends grit, creativity, and free-flowing flair."
+        highlight: "From Saddar lanes to Clifton sands, Karachi's football culture blends grit, creativity, and free-flowing flair.",
+        content: `Karachi's football culture is born in crowded alleys, improvised courts, and seaside parks. Players learn to read each other's movement instantly, using speed and instinct over structure. With every informal tournament, the city produces athletes who are fearless on the ball and comfortable taking risks. In this story, we visit neighborhoods from North Nazimabad to Lyari to capture how football grows where space is limited but passion is endless.`
       },
       {
         title: "Lahore's Football Heritage",
         region: "Lahore",
         date: "Today",
         summary: "Tracing Lahore's football history through old-school clubs, academy reform, and passionate fan traditions.",
-        highlight: "Every match in Lahore still carries the legacy of the National Football Championship era and decades of local rivalry."
+        highlight: "Every match in Lahore still carries the legacy of the National Football Championship era and decades of local rivalry.",
+        content: `Lahore has always been a football city, from the early days of the National Football Championship to the modern academy scene. Historic clubs, dusty fields, and intense derbies have shaped a community that loves the game. This article explores how Lahore's clubs are balancing tradition with new coaching methods, and how fans still gather in numbers to support local talent every weekend.`
       },
       {
         title: "Islamabad's Academy Revolution",
         region: "Islamabad",
         date: "Today",
         summary: "Profiling the capital's rising academies, university teams, and coaching changes that are redefining Pakistan's football future.",
-        highlight: "Islamabad is building a new generation of players on discipline, technique, and modern training methods."
+        highlight: "Islamabad is building a new generation of players on discipline, technique, and modern training methods.",
+        content: `Islamabad is rewriting the playbook for youth football in Pakistan. New academies are focusing on technique, nutrition, and analytics, while university teams create pathways to higher-level competition. We talk with coaches and young players who are trading old habits for structured training, and discover how the capital is becoming a breeding ground for the next generation of national-level talent.`
       },
       {
         title: "Peshawar's Football Spirit",
         region: "Peshawar",
         date: "Today",
         summary: "A story of resilience from KPK, where street tournaments and local identities keep football alive in every community.",
-        highlight: "In Peshawar, football means unity, strength, and tribal pride — played with heart across small fields and courts."
+        highlight: "In Peshawar, football means unity, strength, and tribal pride — played with heart across small fields and courts.",
+        content: `Peshawar's football scene is built on community and resilience. Despite limited infrastructure, local tournaments are a major event, and players carry the pride of their families onto the field. This story highlights how football brings people together in KPK, and how young athletes use the sport to build confidence, discipline, and a brighter future.`
       },
       {
         title: "Quetta and Balochistan's Rise",
         region: "Quetta",
         date: "Today",
         summary: "Documenting the growing football movement in Balochistan, from rugged terrains to club leagues and youth outreach programs.",
-        highlight: "Quetta's rising stars are turning regional hardship into a powerful new football story for Pakistan."
+        highlight: "Quetta's rising stars are turning regional hardship into a powerful new football story for Pakistan.",
+        content: `Football in Quetta is more than a pastime — it is a source of identity and hope. As youth leagues grow and coaches invest in local talent, Balochistan is producing players who are already attracting attention nationally. This feature looks at how grassroots football is changing lives in Quetta and how the region is preparing to become a stronger voice in Pakistan's football future.`
       },
       {
         title: "Fair Play for Future Stars",
         region: "Nationwide",
         date: "Today",
         summary: "How Pakistan can reduce corruption, expand open trials, and create fair chances for youth players across every province.",
-        highlight: "Transparent selection, improved scouting, and support for underrepresented talent are the foundation of a better football future."
+        highlight: "Transparent selection, improved scouting, and support for underrepresented talent are the foundation of a better football future.",
+        content: `Corruption in football selection and management stops many talented youth from being seen. To build a fair future, Pakistan needs open trials, transparent coaching academies, and independent scouting systems. This story explains the steps needed to remove bias, reward merit, and make sure talented youngsters from all provinces — even remote areas — get the chance to play and progress.`
       }
     ];
 
@@ -507,15 +520,40 @@
     function renderBlogResearch() {
       const container = document.getElementById('blogResearchContainer');
       if (!container) return;
-      container.innerHTML = blogResearchPosts.map(post => `
+      container.innerHTML = blogResearchPosts.map((post, idx) => `
         <div class="glass-card rounded-2xl p-6 hover:shadow-2xl transition-shadow duration-300">
           <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${post.region} · ${post.date}</span>
           <h3 class="text-2xl font-display font-bold text-white mt-3 mb-3">${post.title}</h3>
           <p class="text-white/70 leading-relaxed mb-4">${post.summary}</p>
-          <p class="text-white/60 text-sm">${post.highlight}</p>
+          <p class="text-white/60 text-sm mb-6">${post.highlight}</p>
+          <button type="button" onclick="showBlogDetail(${idx})" class="inline-flex items-center justify-center rounded-full bg-brand-red px-5 py-2 text-sm font-semibold text-white hover:bg-brand-red-dark transition">Read More</button>
         </div>
       `).join('');
       initIcons();
+    }
+
+    function showBlogDetail(index) {
+      const post = blogResearchPosts[index];
+      if (!post) return;
+      const detail = document.getElementById('blogArticleDetail');
+      const title = document.getElementById('detailBlogTitle');
+      const region = document.getElementById('detailBlogRegion');
+      const content = document.getElementById('detailBlogContent');
+      const highlight = document.getElementById('detailBlogHighlight');
+      const closeBtn = document.getElementById('closeBlogDetail');
+      if (!detail || !title || !region || !content || !highlight || !closeBtn) return;
+      region.textContent = `${post.region} · ${post.date}`;
+      title.textContent = post.title;
+      content.textContent = post.content;
+      highlight.textContent = post.highlight;
+      detail.classList.remove('hidden');
+      detail.scrollIntoView({ behavior: 'smooth' });
+      closeBtn.addEventListener('click', hideBlogDetail);
+    }
+
+    function hideBlogDetail() {
+      const detail = document.getElementById('blogArticleDetail');
+      if (detail) detail.classList.add('hidden');
     }
 
     // Safe icon init
