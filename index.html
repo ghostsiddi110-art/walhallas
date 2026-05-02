@@ -197,6 +197,21 @@
       0%, 100% { background-position: 0% 0%; }
       50% { background-position: 100% 0%; }
     }
+    .scroll-hint {
+      animation: floatHint 2.8s ease-in-out infinite;
+    }
+    .scroll-arrow {
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @keyframes scrollBounce {
+      0% { transform: translateY(0); opacity: 0.9; }
+      50% { transform: translateY(8px); opacity: 0.4; }
+      100% { transform: translateY(0); opacity: 0.9; }
+    }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -305,6 +320,12 @@
           <a href="#newsletter" id="heroJoinBtn" class="hero-cta px-8 py-3 bg-gradient-to-r from-brand-red via-brand-gold to-brand-red-dark text-white font-bold rounded-full hover:opacity-95 transition">Join the Marshal Movement</a>
           <a href="#" data-page="shop" class="px-8 py-3 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition nav-link">Shop Kits</a>
         </div>
+        <a href="#newsletter" class="scroll-hint mt-12 inline-flex flex-col items-center gap-2 text-white/70 hover:text-white transition">
+          <span class="text-sm uppercase tracking-[0.3em]">Scroll down</span>
+          <span class="inline-flex h-14 w-8 items-center justify-center rounded-full border border-white/20">
+            <span class="scroll-arrow block h-2.5 w-2.5 rounded-full bg-white"></span>
+          </span>
+        </a>
       </div>
     </section>
 
