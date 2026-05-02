@@ -172,6 +172,8 @@
         <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Join the Marshal Movement</h2>
         <p class="text-white/60 mb-8">Become part of the journey. Get exclusive updates, early merch access, and weekly inspiration.</p>
         <form id="newsletterForm" action="https://formsubmit.co/walhallasmarshalsofficial@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas">
           <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 mb-3 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 mb-4 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <button type="submit" class="w-full py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition text-lg">Join Now</button>
@@ -487,33 +489,7 @@
       }
 
       // Newsletter form
-      const newsletterForm = document.getElementById('newsletterForm');
-      if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const form = e.target;
-          const msg = document.getElementById('newsletterMsg');
-          if (!msg) return;
-          msg.classList.remove('hidden');
-          msg.textContent = 'Sending...';
-          msg.className = 'mt-4 text-sm text-white';
-          fetch(form.action, { method: 'POST', body: new FormData(form) })
-          .then(response => {
-            if (response.ok) {
-              msg.textContent = '✅ Welcome to the Marshal Movement!';
-              msg.className = 'mt-4 text-sm text-green-400';
-              form.reset();
-            } else {
-              msg.textContent = '❌ Oops! Please try again.';
-              msg.className = 'mt-4 text-sm text-red-400';
-            }
-          })
-          .catch(() => {
-            msg.textContent = '❌ Network error. Check your connection.';
-            msg.className = 'mt-4 text-sm text-red-400';
-          });
-        });
-      }
+      // Removed JavaScript handling - now uses plain form submission
 
       // Fade-in observer
       const observer = new IntersectionObserver((entries) => {
