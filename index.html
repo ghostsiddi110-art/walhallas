@@ -58,6 +58,40 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.1);
     }
+    .section-heading {
+      position: relative;
+      display: inline-block;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -1rem;
+      width: 4rem;
+      height: 2px;
+      background: linear-gradient(90deg, #d00000, #f1c40f);
+      opacity: 0.9;
+    }
+    .blog-card {
+      background: rgba(10, 10, 10, 0.78);
+      border: 1px solid rgba(208, 0, 0, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(208, 0, 0, 0.55);
+      box-shadow: 0 30px 70px rgba(208, 0, 0, 0.22);
+    }
+    .blog-detail-card {
+      background: rgba(7, 7, 7, 0.9);
+      border: 1px solid rgba(208, 0, 0, 0.35);
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45);
+    }
+    .read-more-btn {
+      min-width: 120px;
+    }
     .hero-overlay {
       background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 40%, transparent 100%);
     }
@@ -202,13 +236,13 @@
     <section id="blog-research" class="max-w-7xl mx-auto px-4 py-16 fade-in">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
         <div>
-          <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Football Culture & <span class="text-brand-red">Research</span></h2>
+          <h2 class="section-heading text-4xl md:text-5xl font-display font-bold text-white">Football Culture & <span class="text-brand-red">Research</span></h2>
           <p class="text-white/60 max-w-2xl mt-3">In-depth stories from across Pakistan that explore football culture, local history, youth development, and the fight for fair play.</p>
         </div>
         <span class="text-sm text-white/40 uppercase tracking-[0.2em]">Updated daily</span>
       </div>
       <div id="blogResearchContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      <div id="blogArticleDetail" class="glass-card rounded-2xl p-8 mt-10 hidden">
+      <div id="blogArticleDetail" class="blog-detail-card rounded-2xl p-8 mt-10 hidden">
         <span id="detailBlogRegion" class="text-brand-red text-xs font-bold uppercase tracking-wider"></span>
         <h3 id="detailBlogTitle" class="text-3xl md:text-4xl font-display font-bold text-white mt-3 mb-4"></h3>
         <p id="detailBlogContent" class="text-white/70 leading-relaxed text-base md:text-lg"></p>
@@ -523,12 +557,12 @@
       const container = document.getElementById('blogResearchContainer');
       if (!container) return;
       container.innerHTML = blogResearchPosts.map((post, idx) => `
-        <div class="glass-card rounded-2xl p-6 hover:shadow-2xl transition-shadow duration-300">
+        <div class="blog-card rounded-2xl p-6">
           <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${post.region} · ${post.date}</span>
           <h3 class="text-2xl font-display font-bold text-white mt-3 mb-3">${post.title}</h3>
           <p class="text-white/70 leading-relaxed mb-4">${post.summary}</p>
           <p class="text-white/60 text-sm mb-6">${post.highlight}</p>
-          <button type="button" onclick="showBlogDetail(${idx})" class="inline-flex items-center justify-center rounded-full bg-brand-red px-5 py-2 text-sm font-semibold text-white hover:bg-brand-red-dark transition">Read More</button>
+          <button type="button" onclick="showBlogDetail(${idx})" class="read-more-btn inline-flex items-center justify-center rounded-full bg-brand-red px-5 py-2 text-sm font-semibold text-white hover:bg-brand-red-dark transition">Read More</button>
         </div>
       `).join('');
       initIcons();
