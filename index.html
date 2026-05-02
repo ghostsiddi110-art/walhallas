@@ -183,7 +183,7 @@
         <p class="text-white/60 mb-8">Become part of the journey. Get exclusive updates, early merch access, and weekly inspiration.</p>
         <form id="newsletterForm" action="https://formsubmit.co/ghostsiddi110@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true">
+          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true#newsletter">
           <input type="hidden" name="_replyto" id="replyToField" value="">
           <input type="hidden" name="_subject" value="Welcome to the Marshal Movement!">
           <input type="hidden" name="_autoresponse" id="autoresponseField" value="Thanks for joining the Marshal Movement! We'll keep you updated with match reports, merch drops, and exclusive Marshal news.">
@@ -191,7 +191,7 @@
           <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 mb-4 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <button type="submit" class="w-full py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition text-lg">Join Now</button>
         </form>
-        <p id="newsletterMsg" class="mt-4 text-sm hidden"></p>
+        <p id="newsletterMsg" class="mt-4 hidden rounded-2xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-100"></p>
         <p class="text-white/30 text-xs mt-4">We'll never spam. You're family now.</p>
       </div>
     </div>
@@ -521,9 +521,11 @@
       if (!msg) return;
       const params = new URLSearchParams(window.location.search);
       if (params.get('submitted') === 'true') {
-        msg.className = 'mt-4 text-sm text-green-400';
-        msg.textContent = '✅ Thank you! Your subscription was received.';
+        msg.className = 'mt-4 rounded-2xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-100';
+        msg.textContent = '✅ Thank you! Your subscription was received. Stay tuned for exclusive Marshal updates.';
         msg.classList.remove('hidden');
+        const newsletter = document.getElementById('newsletter');
+        if (newsletter) newsletter.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
