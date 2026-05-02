@@ -95,6 +95,17 @@
     .hero-overlay {
       background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 40%, transparent 100%);
     }
+    .home-hero {
+      position: relative;
+      min-height: 90vh;
+      background-image: linear-gradient(rgba(10,10,10,0.22), rgba(10,10,10,0.22)), url('logo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-blend-mode: overlay;
+      overflow: hidden;
+    }
     .hero-glow {
       position: absolute;
       inset: 0;
@@ -276,7 +287,7 @@
       <div class="hidden md:flex items-center gap-6">
         <a href="#" data-page="home" class="nav-link text-sm text-white/70 hover:text-brand-red">Home</a>
         <a href="#" data-page="matches" class="nav-link text-sm text-white/70 hover:text-brand-red">Matches</a>
-        <a href="#blog-research" class="text-sm text-white/70 hover:text-brand-red">Blog</a>
+        <a href="#blog-research" class="blog-link text-sm text-white/70 hover:text-brand-red">Blog</a>
         <a href="#" data-page="shop" class="nav-link text-sm text-white/70 hover:text-brand-red">Shop</a>
         <a href="#" data-page="about" class="nav-link text-sm text-white/70 hover:text-brand-red">About</a>
         <a href="#" data-page="contact" class="nav-link text-sm text-white/70 hover:text-brand-red">Contact</a>
@@ -294,7 +305,7 @@
     <div id="mobileMenu" class="hidden md:hidden bg-black/90 px-4 pb-4">
       <a href="#" data-page="home" class="block py-2 text-white/70 mobile-link">Home</a>
       <a href="#" data-page="matches" class="block py-2 text-white/70 mobile-link">Matches</a>
-      <a href="#blog-research" class="block py-2 text-white/70 mobile-link">Blog</a>
+      <a href="#blog-research" class="block py-2 text-white/70 mobile-link blog-link">Blog</a>
       <a href="#" data-page="shop" class="block py-2 text-white/70 mobile-link">Shop</a>
       <a href="#" data-page="about" class="block py-2 text-white/70 mobile-link">About</a>
       <a href="#" data-page="contact" class="block py-2 text-white/70 mobile-link">Contact</a>
@@ -748,6 +759,21 @@
             e.preventDefault();
             const page = this.getAttribute('data-page');
             if (page) navigateTo(page);
+          });
+        });
+        document.querySelectorAll('.blog-link').forEach(el => {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const scrollToBlog = () => {
+              const blogSection = document.getElementById('blog-research');
+              if (blogSection) blogSection.scrollIntoView({ behavior: 'smooth' });
+            };
+            if (!document.getElementById('home-page').classList.contains('active-page')) {
+              navigateTo('home');
+              setTimeout(scrollToBlog, 300);
+            } else {
+              scrollToBlog();
+            }
           });
         });
         document.getElementById('logoLink').addEventListener('click', function(e) {
