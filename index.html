@@ -184,6 +184,9 @@
         <form id="newsletterForm" action="https://formsubmit.co/ghostsiddi110@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true">
+          <input type="hidden" name="_replyto" id="replyToField" value="">
+          <input type="hidden" name="_subject" value="Welcome to the Marshal Movement!">
+          <input type="hidden" name="_autoresponse" id="autoresponseField" value="Thanks for joining the Marshal Movement! We'll keep you updated with match reports, merch drops, and exclusive Marshal news.">
           <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 mb-3 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 mb-4 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <button type="submit" class="w-full py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition text-lg">Join Now</button>
@@ -574,7 +577,19 @@
       }
 
       // Newsletter form
-      // Removed JavaScript handling - now uses plain form submission
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function() {
+          const emailInput = newsletterForm.querySelector('input[name="email"]');
+          const replyField = newsletterForm.querySelector('input[name="_replyto"]');
+          const nameInput = newsletterForm.querySelector('input[name="name"]');
+          const autoresponseField = newsletterForm.querySelector('input[name="_autoresponse"]');
+          if (emailInput && replyField) replyField.value = emailInput.value;
+          if (nameInput && autoresponseField) {
+            autoresponseField.value = `Thanks ${nameInput.value} for joining the Marshal Movement! We'll keep you updated with match reports, merch drops, and exclusive Marshal news.`;
+          }
+        });
+      }
 
       // Fade-in observer
       const observer = new IntersectionObserver((entries) => {
