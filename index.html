@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walhallas Marshal FC — Official Site</title>
+  <meta name="description" content="Walhallas Marshal FC — Rising from the streets to conquer Pakistan. Official blog, merch, and FC Moments." />
+  <meta property="og:title" content="Walhallas Marshal FC" />
+  <meta property="og:description" content="Pakistan's street‑born football brand. Est. 2024." />
+  <meta property="og:image" content="logo.jpg" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0a0a0a',
+              red: '#d00000',
+              'red-dark': '#9b0000',
+              gold: '#f1c40f',
+              white: '#ffffff',
+              gray: '#1a1a1a',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Oswald', 'sans-serif']
+          },
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .animated-bg {
+      background: linear-gradient(45deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass-card {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-overlay {
+      background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 40%, transparent 100%);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .page { display: none; }
+    .page.active-page { display: block; }
+    .nav-link.active-link {
+      color: #d00000;
+      font-weight: 600;
+      border-bottom: 2px solid #d00000;
+    }
+    .contact-panel {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-btn {
+      background: #d00000;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+    .contact-btn:hover { transform: translateY(-2px); }
+    .contact-btn.whatsapp { background: #25d366; }
+    .contact-btn.instagram { background: #c13584; }
+
+    @keyframes jumpIn {
+      0% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+      60% { transform: translateY(10px) scale(1.05); opacity: 1; }
+      100% { transform: translateY(0) scale(1); }
+    }
+    .jump-in { animation: jumpIn 0.8s ease-out; }
+  </style>
+</head>
+<body class="animated-bg">
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2" id="logoLink">
+        <img src="logo.jpg" alt="WMFC Logo" class="w-10 h-10 rounded-full object-cover" onerror="this.style.display='none'">
+        <span class="font-display text-xl font-bold text-white">Walhallas Marshal</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" data-page="home" class="nav-link text-sm text-white/70 hover:text-brand-red">Home</a>
+        <a href="#" data-page="matches" class="nav-link text-sm text-white/70 hover:text-brand-red">Matches</a>
+        <a href="#" data-page="shop" class="nav-link text-sm text-white/70 hover:text-brand-red">Shop</a>
+        <a href="#" data-page="about" class="nav-link text-sm text-white/70 hover:text-brand-red">About</a>
+        <a href="#" data-page="contact" class="nav-link text-sm text-white/70 hover:text-brand-red">Contact</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="#newsletter" id="joinMovementBtn" class="px-5 py-2 bg-brand-red text-white font-semibold rounded-full text-sm hover:bg-brand-red-dark transition">Join Movement</a>
+      </div>
+
+      <button id="mobileMenuBtn" class="md:hidden">
+        <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-black/90 px-4 pb-4">
+      <a href="#" data-page="home" class="block py-2 text-white/70 mobile-link">Home</a>
+      <a href="#" data-page="matches" class="block py-2 text-white/70 mobile-link">Matches</a>
+      <a href="#" data-page="shop" class="block py-2 text-white/70 mobile-link">Shop</a>
+      <a href="#" data-page="about" class="block py-2 text-white/70 mobile-link">About</a>
+      <a href="#" data-page="contact" class="block py-2 text-white/70 mobile-link">Contact</a>
+      <a href="#newsletter" id="mobileJoinBtn" class="block py-2 text-brand-red font-semibold">Join Movement</a>
+    </div>
+  </nav>
+
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page active-page pt-16">
+    <section class="relative h-[90vh] flex items-center">
+      <div class="absolute inset-0 hero-overlay z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-transparent to-brand-black z-0"></div>
+      <div class="relative z-20 max-w-5xl mx-auto px-4 text-center">
+        <span class="inline-block px-4 py-1 bg-brand-red/20 border border-brand-red rounded-full text-sm text-brand-red font-bold uppercase tracking-wider mb-6">Est. 2024 · Pakistan</span>
+        <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white mb-4 jump-in">Walhallas Marshal FC</h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-8 font-semibold italic">"Rising from the streets to conquer."</p>
+        <p class="text-white/60 max-w-2xl mx-auto mb-10 text-sm md:text-base">A street‑born football club with a dream to become Pakistan’s greatest. We represent courage, unity, and the passion of the youth.</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="#newsletter" id="heroJoinBtn" class="px-8 py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition">Join the Marshal Movement</a>
+          <a href="#" data-page="shop" class="px-8 py-3 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition nav-link">Shop Kits</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Sign-up -->
+    <div id="newsletter" class="max-w-3xl mx-auto px-4 py-20">
+      <div class="glass-card rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Join the Marshal Movement</h2>
+        <p class="text-white/60 mb-8">Become part of the journey. Get exclusive updates, early merch access, and weekly inspiration.</p>
+        <form id="newsletterForm" action="https://formsubmit.co/ghostsdddi110@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 mb-3 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
+          <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 mb-4 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
+          <button type="submit" class="w-full py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition text-lg">Join Now</button>
+        </form>
+        <p id="newsletterMsg" class="mt-4 text-sm hidden"></p>
+        <p class="text-white/30 text-xs mt-4">We'll never spam. You're family now.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATCHES PAGE -->
+  <div id="matches-page" class="page pt-20">
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">⚽ <span class="text-brand-red">Matches</span></h1>
+
+      <!-- Past Match Reports (dynamically rendered) -->
+      <div id="matchReportsContainer"></div>
+
+      <!-- Upcoming Fixtures (dynamically rendered) -->
+      <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">📅 Upcoming Fixtures</h2>
+      <div id="upcomingFixturesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+  </div>
+
+  <!-- SHOP PAGE -->
+  <div id="shop-page" class="page pt-20">
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Shop <span class="text-brand-red">Kits</span></h1>
+      <div id="productsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </section>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div id="about-page" class="page pt-20">
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Our <span class="text-brand-red">Story</span></h1>
+      <div class="glass-card rounded-2xl p-8 md:p-12 text-white/80 leading-relaxed text-base md:text-lg">
+        <p class="mb-6">Walhallas Marshal FC was born in 2024 on the streets of Pakistan. A group of young footballers, led by our founder <span class="text-brand-red font-semibold">Ghost</span>, decided to stop dreaming and start building. With nothing but raw talent and unshakable brotherhood, we formed a club that represents every kid who ever kicked a ball on a dusty street.</p>
+        <p class="mb-6">Our mission is simple: <em class="text-white font-semibold">"Rising from the streets to conquer."</em> We aim to become Pakistan’s most recognised football brand — a symbol of courage, unity, and ambition.</p>
+        <p>We are more than a team. We are a movement. Welcome to the Marshal family.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page pt-20">
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Contact <span class="text-brand-red">Us</span></h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="https://wa.me/923139483901" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="message-circle" class="w-8 h-8 text-green-400 mx-auto mb-3"></i><h3 class="text-white font-bold">WhatsApp</h3><p class="text-white/60 text-sm mt-1">+92 313 9483901</p></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsdddi110@gmail.com" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="mail" class="w-8 h-8 text-blue-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Email</h3><p class="text-white/60 text-sm mt-1">ghostsdddi110@gmail.com</p></a>
+        <a href="https://instagram.com/ghostmarshal" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="instagram" class="w-8 h-8 text-pink-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Instagram</h3><p class="text-white/60 text-sm mt-1">@ghostmarshal</p></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/40 text-sm">© 2026 Walhallas Marshal FC. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="https://instagram.com/ghostmarshal" target="_blank" aria-label="Instagram" class="text-white/40 hover:text-pink-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+        <a href="https://wa.me/923139483901" target="_blank" aria-label="WhatsApp" class="text-white/40 hover:text-green-400"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CONTACT PANEL -->
+  <div class="contact-panel">
+    <a href="https://wa.me/923139483901" target="_blank" class="contact-btn whatsapp"><i data-lucide="message-circle" class="w-5 h-5"></i> Chat</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsdddi110@gmail.com" target="_blank" class="contact-btn"><i data-lucide="mail" class="w-5 h-5"></i> Mail</a>
+    <a href="https://instagram.com/ghostmarshal" target="_blank" class="contact-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i> Follow</a>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ========== DATA ARRAYS – JUST ADD/REMOVE OBJECTS HERE ==========
+    const products = [
+      {
+        image: "jersey-home-kit.jpg",
+        fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit",
+        title: "Home Kit 2024",
+        description: "Dri‑FIT ADV · Embroidered Crest",
+        price: 45,
+      },
+      {
+        image: "jersey-away-kit.jpg",
+        fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit",
+        title: "Away Kit 2024",
+        description: "Dri‑FIT · Lightweight",
+        price: 45,
+      },
+      {
+        image: "jersey-training-kit.jpg",
+        fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit",
+        title: "Training Kit",
+        description: "Breathable · Movement Fit",
+        price: 45,
+      },
+      {
+        image: "jersey-street-kit.jpg",
+        fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition",
+        title: "Street Edition",
+        description: "Limited · Urban Style",
+        price: 45,
+      }
+      // TO ADD A NEW ITEM, just add another object like the ones above
+    ];
+
+    const matchReports = [
+      {
+        title: "Walhallas Marshal FC 19 - 5 Shaani FC",
+        date: "Last Sunday",
+        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
+        summary: `A stunning display of attacking firepower saw Walhallas Marshal FC demolish Shaani FC in a fiery encounter last Sunday.
+          The Marshals were unstoppable from the first whistle, with captain <strong class="text-brand-red">Ghost Marshal</strong> pulling all the strings.
+          He not only bagged <strong>6 goals</strong> but also provided an incredible <strong>15 assists</strong>, setting up teammates time and again.`,
+        highlight: `The star of the show was <strong class="text-brand-red">Hash</strong>, who earned the <strong>MVP</strong> award with a sensational <strong>8‑goal</strong> performance.
+          Every shot seemed to find the back of the net as Hash ran the Shaani defence ragged.`,
+        stats: [
+          { label: "Ghost (C)", value: "6 ⚽" },
+          { label: "Ghost Assists", value: "15 🅰️" },
+          { label: "Hash (MVP)", value: "8 ⚽" },
+          { label: "Full Time", value: "19 - 5" }
+        ]
+      }
+      // ADD MORE MATCH REPORTS HERE
+    ];
+
+    const upcomingFixtures = [
+      {
+        date: "Sunday · 3rd May",
+        time: "7 - 8 PM",
+        home: "Walhallas FC",
+        away: "Shani FC",
+        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal"
+      },
+      {
+        date: "Saturday · Match Day",
+        time: "Hoping for best",
+        home: "Walhallas FC",
+        away: "Sir Syed Inter Team",
+        venue: "WSSS"
+      }
+      // ADD MORE FIXTURES THE SAME WAY
+    ];
+
+    // ========== RENDERING FUNCTIONS ==========
+    function renderProducts() {
+      const container = document.getElementById('productsContainer');
+      if (!container) return;
+      container.innerHTML = products.map((p, index) => `
+        <div class="glass-card rounded-2xl overflow-hidden text-center">
+          <img src="${p.image}" alt="${p.title}" class="w-full h-64 object-cover" 
+               onerror="this.src='${p.fallback}'">
+          <div class="p-4">
+            <h3 class="text-white font-bold text-lg">${p.title}</h3>
+            <p class="text-white/50 text-sm">${p.description}</p>
+            <div class="text-2xl font-extrabold text-brand-red my-2">$${p.price}</div>
+            <a href="https://wa.me/923139483901?text=I%20want%20to%20order%20the%20${encodeURIComponent(p.title)}%20($${p.price})" 
+               target="_blank" 
+               class="inline-flex items-center justify-center gap-2 px-5 py-2 bg-brand-red text-white rounded-full text-sm font-semibold hover:bg-brand-red-dark transition">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i> Order via WhatsApp
+            </a>
+          </div>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    function renderMatchReports() {
+      const container = document.getElementById('matchReportsContainer');
+      if (!container) return;
+      container.innerHTML = matchReports.map((report, idx) => `
+        <div class="glass-card rounded-2xl p-6 md:p-10 mb-12">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">Match Report · ${report.date}</span>
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-white mt-2 mb-4">${report.title}</h2>
+          <p class="text-white/60 mb-4"><i class="inline-block mr-1" data-lucide="map-pin"></i> ${report.venue}</p>
+          <p class="text-white/70 leading-relaxed mb-6">${report.summary}</p>
+          <p class="text-white/70 leading-relaxed mb-6">${report.highlight || ''}</p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            ${report.stats.map(stat => `
+              <div class="bg-brand-red/10 border border-brand-red/30 rounded-xl px-5 py-3 text-center">
+                <span class="block text-2xl font-extrabold text-brand-red">${stat.value}</span>
+                <span class="text-xs text-white/60">${stat.label}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    function renderUpcomingFixtures() {
+      const container = document.getElementById('upcomingFixturesContainer');
+      if (!container) return;
+      container.innerHTML = upcomingFixtures.map(fix => `
+        <div class="glass-card rounded-2xl p-6 flex flex-col">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${fix.date}</span>
+            <span class="text-white/40 text-xs">${fix.time}</span>
+          </div>
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="text-center flex-1"><span class="text-xl font-display font-bold text-white">${fix.home}</span></div>
+            <span class="text-lg font-bold text-white/50">VS</span>
+            <div class="text-center flex-1"><span class="text-xl font-display font-bold text-white">${fix.away}</span></div>
+          </div>
+          <div class="mt-auto flex items-center gap-2 text-white/50 text-sm">
+            <i data-lucide="map-pin" class="w-4 h-4"></i> ${fix.venue}
+          </div>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    // Safe icon init
+    function initIcons() {
+      try { if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch(e) {}
+    }
+
+    // ========== NAVIGATION AND CORE ==========
+    (function() {
+      function navigateTo(pageName) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        const target = document.getElementById(pageName + '-page');
+        if (target) target.classList.add('active-page');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active-link');
+          if (link.getAttribute('data-page') === pageName) link.classList.add('active-link');
+        });
+        setTimeout(initIcons, 50);
+      }
+
+      function bindNavigation() {
+        document.querySelectorAll('[data-page]').forEach(el => {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            if (page) navigateTo(page);
+          });
+        });
+        document.getElementById('logoLink').addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('home');
+        });
+        document.querySelectorAll('#joinMovementBtn, #heroJoinBtn, #mobileJoinBtn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newsletter = document.getElementById('newsletter');
+            if (newsletter) newsletter.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+
+      // Mobile menu
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const msg = document.getElementById('newsletterMsg');
+          if (!msg) return;
+          msg.classList.remove('hidden');
+          msg.textContent = 'Sending...';
+          msg.className = 'mt-4 text-sm text-white';
+          fetch(form.action, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            if (response.ok) {
+              msg.textContent = '✅ Welcome to the Marshal Movement!';
+              msg.className = 'mt-4 text-sm text-green-400';
+              form.reset();
+            } else {
+              msg.textContent = '❌ Oops! Please try again.';
+              msg.className = 'mt-4 text-sm text-red-400';
+            }
+          })
+          .catch(() => {
+            msg.textContent = '❌ Network error. Check your connection.';
+            msg.className = 'mt-4 text-sm text-red-400';
+          });
+        });
+      }
+
+      // Fade-in observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // Initial render
+      renderProducts();
+      renderMatchReports();
+      renderUpcomingFixtures();
+      initIcons();
+      bindNavigation();
+    })();
+  </script>
+</body>
+</html>
