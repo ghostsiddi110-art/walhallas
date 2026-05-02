@@ -586,7 +586,8 @@
           const autoresponseField = newsletterForm.querySelector('input[name="_autoresponse"]');
           if (emailInput && replyField) replyField.value = emailInput.value;
           if (nameInput && autoresponseField) {
-            autoresponseField.value = `Thanks ${nameInput.value} for joining the Marshal Movement! We'll keep you updated with match reports, merch drops, and exclusive Marshal news.`;
+            const nameValue = nameInput.value.trim() || 'Marshal Fan';
+            autoresponseField.value = `Thanks ${nameValue} for joining the Marshal Movement! You're now part of the club. Check your inbox for match reports, merch drops, and exclusive Marshal updates, then visit https://ghostsiddi110-art.github.io/walhallas for daily news and research.`;
           }
         });
       }
