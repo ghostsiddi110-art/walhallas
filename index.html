@@ -311,17 +311,18 @@
     const upcomingFixtures = [
       {
         date: "Sunday · 3rd May",
-        time: "7 - 8 PM",
+        time: "7 to 8 PM",
         home: "Walhallas FC",
-        away: "Shani FC",
+        away: "Shaani FC",
         venue: "Fire Ball Arena, Gulshan‑e‑Iqbal"
       },
       {
         date: "Saturday · Match Day",
-        time: "Hoping for best",
+        time: "6 to 7 PM",
         home: "Walhallas FC",
         away: "Sir Syed Inter Team",
-        venue: "WSSS"
+        venue: "WSSS",
+        lineup: "Lineup: Qasim, Ghost, Hash, Abdulrehman, Rehman Booty, Abdullah"
       }
       // ADD MORE FIXTURES THE SAME WAY
     ];
@@ -389,6 +390,7 @@
           <div class="mt-auto flex items-center gap-2 text-white/50 text-sm">
             <i data-lucide="map-pin" class="w-4 h-4"></i> ${fix.venue}
           </div>
+          ${fix.lineup ? `<p class="text-white/50 text-sm mt-2">${fix.lineup}</p>` : ''}
         </div>
       `).join('');
       initIcons();
