@@ -61,6 +61,16 @@
     .hero-overlay {
       background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 40%, transparent 100%);
     }
+    .home-hero {
+      position: relative;
+      min-height: 90vh;
+      background-image: linear-gradient(rgba(10,10,10,0.35), rgba(10,10,10,0.35)), url('logo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -151,7 +161,7 @@
 
   <!-- HOME PAGE -->
   <div id="home-page" class="page active-page pt-16">
-    <section class="relative h-[90vh] flex items-center">
+    <section class="relative h-[90vh] flex items-center home-hero">
       <div class="absolute inset-0 hero-overlay z-10"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-transparent to-brand-black z-0"></div>
       <div class="relative z-20 max-w-5xl mx-auto px-4 text-center">
@@ -171,9 +181,9 @@
       <div class="glass-card rounded-2xl p-8 md:p-12 text-center">
         <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Join the Marshal Movement</h2>
         <p class="text-white/60 mb-8">Become part of the journey. Get exclusive updates, early merch access, and weekly inspiration.</p>
-        <form id="newsletterForm" action="https://formsubmit.co/walhallasmarshalsofficial@gmail.com" method="POST">
+        <form id="newsletterForm" action="https://formsubmit.co/ghostsiddi110@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas">
+          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true">
           <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 mb-3 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 mb-4 bg-black/50 border border-white/10 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
           <button type="submit" class="w-full py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition text-lg">Join Now</button>
@@ -182,6 +192,18 @@
         <p class="text-white/30 text-xs mt-4">We'll never spam. You're family now.</p>
       </div>
     </div>
+
+    <!-- Blog Research Section -->
+    <section id="blog-research" class="max-w-7xl mx-auto px-4 py-16">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Blog <span class="text-brand-red">Research</span></h2>
+          <p class="text-white/60 max-w-2xl mt-3">Daily football stories from across Pakistan — street league culture, academy insights, match reviews, and regional passion.</p>
+        </div>
+        <span class="text-sm text-white/40 uppercase tracking-[0.2em]">Updated daily</span>
+      </div>
+      <div id="blogResearchContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
   </div>
 
   <!-- MATCHES PAGE -->
@@ -260,7 +282,7 @@
       <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Contact <span class="text-brand-red">Us</span></h1>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <a href="https://wa.me/923139483901" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="message-circle" class="w-8 h-8 text-green-400 mx-auto mb-3"></i><h3 class="text-white font-bold">WhatsApp</h3><p class="text-white/60 text-sm mt-1">+92 313 9483901</p></a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=walhallasmarshalsofficial@gmail.com" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="mail" class="w-8 h-8 text-blue-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Email</h3><p class="text-white/60 text-sm mt-1">walhallasmarshalsofficial@gmail.com</p></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="mail" class="w-8 h-8 text-blue-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Email</h3><p class="text-white/60 text-sm mt-1">ghostsiddi110@gmail.com</p></a>
         <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="instagram" class="w-8 h-8 text-pink-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Instagram</h3><p class="text-white/60 text-sm mt-1">@walhallasmarshalsofficial</p></a>
       </div>
     </section>
@@ -280,7 +302,7 @@
   <!-- FLOATING CONTACT PANEL -->
   <div class="contact-panel">
     <a href="https://wa.me/923139483901" target="_blank" class="contact-btn whatsapp"><i data-lucide="message-circle" class="w-5 h-5"></i> Chat</a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=walhallasmarshalsofficial@gmail.com" target="_blank" class="contact-btn"><i data-lucide="mail" class="w-5 h-5"></i> Mail</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="contact-btn"><i data-lucide="mail" class="w-5 h-5"></i> Mail</a>
     <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="contact-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i> Follow</a>
   </div>
 
@@ -365,6 +387,44 @@
       // ADD MORE FIXTURES THE SAME WAY
     ];
 
+    const blogResearchPosts = [
+      {
+        title: "Karachi Street Football Pulse",
+        region: "Karachi",
+        date: "Today",
+        summary: "A daily look at coastal street matches, rising talent, and the raw energy of Karachi's football culture.",
+        highlight: "New local stars are emerging from weekend tournaments in Clifton and North Nazimabad."
+      },
+      {
+        title: "Lahore Academy Growth",
+        region: "Lahore",
+        date: "Today",
+        summary: "Exploring youth academy training, new coaching methods, and the city's growing football community.",
+        highlight: "A fresh wave of technical training is shaping the next generation of Lahore's players."
+      },
+      {
+        title: "Islamabad Weekend Derbies",
+        region: "Islamabad",
+        date: "Today",
+        summary: "Match research from the capital's weekend derbies, academy rounds, and fan culture near F-9 Park.",
+        highlight: "Teams are sharpening their style with disciplined buildup play and tighter defense."
+      },
+      {
+        title: "Peshawar Power Plays",
+        region: "Peshawar",
+        date: "Today",
+        summary: "Daily updates on hard-fought fixtures and the passionate football scene in KPK.",
+        highlight: "Local teams are blending speed and strength to dominate neighborhood tournaments."
+      },
+      {
+        title: "Quetta Rising Stars",
+        region: "Quetta",
+        date: "Today",
+        summary: "Researching how football is spreading in Balochistan and which young players are standing out.",
+        highlight: "A new generation of Quetta players is gaining attention for their skill and resilience."
+      }
+    ];
+
     // ========== RENDERING FUNCTIONS ==========
     function renderProducts() {
       const container = document.getElementById('productsContainer');
@@ -434,9 +494,34 @@
       initIcons();
     }
 
+    function renderBlogResearch() {
+      const container = document.getElementById('blogResearchContainer');
+      if (!container) return;
+      container.innerHTML = blogResearchPosts.map(post => `
+        <div class="glass-card rounded-2xl p-6 hover:shadow-2xl transition-shadow duration-300">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${post.region} · ${post.date}</span>
+          <h3 class="text-2xl font-display font-bold text-white mt-3 mb-3">${post.title}</h3>
+          <p class="text-white/70 leading-relaxed mb-4">${post.summary}</p>
+          <p class="text-white/60 text-sm">${post.highlight}</p>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
     // Safe icon init
     function initIcons() {
       try { if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch(e) {}
+    }
+
+    function showNewsletterStatus() {
+      const msg = document.getElementById('newsletterMsg');
+      if (!msg) return;
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('submitted') === 'true') {
+        msg.className = 'mt-4 text-sm text-green-400';
+        msg.textContent = '✅ Thank you! Your subscription was received.';
+        msg.classList.remove('hidden');
+      }
     }
 
     // ========== NAVIGATION AND CORE ==========
@@ -503,8 +588,10 @@
       renderProducts();
       renderMatchReports();
       renderUpcomingFixtures();
+      renderBlogResearch();
       initIcons();
       bindNavigation();
+      showNewsletterStatus();
     })();
   </script>
 </body>
