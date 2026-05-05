@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walhallas Marshal FC — Official Site</title>
+  <meta name="description" content="Walhallas Marshal FC — Rising from the streets to conquer Pakistan. Official blog, merch, and FC Moments." />
+  <meta property="og:title" content="Walhallas Marshal FC" />
+  <meta property="og:description" content="Pakistan's street‑born football brand. Est. 2024." />
+  <meta property="og:image" content="logo.jpg" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0a0a0a',
+              red: '#d00000',
+              'red-dark': '#9b0000',
+              gold: '#f1c40f',
+              white: '#ffffff',
+              gray: '#1a1a1a',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Oswald', 'sans-serif']
+          },
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .animated-bg {
+      background: linear-gradient(45deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass-card {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .section-heading {
+      position: relative;
+      display: inline-block;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -1rem;
+      width: 4rem;
+      height: 2px;
+      background: linear-gradient(90deg, #d00000, #f1c40f);
+      opacity: 0.9;
+    }
+    .blog-card {
+      background: rgba(10, 10, 10, 0.78);
+      border: 1px solid rgba(208, 0, 0, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(208, 0, 0, 0.55);
+      box-shadow: 0 30px 70px rgba(208, 0, 0, 0.22);
+    }
+    .blog-detail-card {
+      background: rgba(7, 7, 7, 0.9);
+      border: 1px solid rgba(208, 0, 0, 0.35);
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45);
+    }
+    .read-more-btn {
+      min-width: 120px;
+    }
+    .hero-overlay {
+      background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 40%, transparent 100%);
+    }
+    .home-hero {
+      position: relative;
+      min-height: 90vh;
+      background-image: linear-gradient(rgba(10,10,10,0.22), rgba(10,10,10,0.22)), url('logo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-blend-mode: overlay;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top center, rgba(208, 0, 0, 0.18), transparent 24%),
+                  radial-gradient(circle at 20% 70%, rgba(241, 196, 15, 0.15), transparent 18%),
+                  radial-gradient(circle at 80% 30%, rgba(241, 196, 15, 0.12), transparent 16%);
+      opacity: 0.95;
+      z-index: 5;
+    }
+    .hero-spark {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(2px);
+      animation: floatPulse 6s ease-in-out infinite alternate;
+      opacity: 0.85;
+    }
+    .hero-spark:nth-child(1) { width: 16px; height: 16px; background: rgba(208, 0, 0, 0.75); top: 18%; left: 72%; }
+    .hero-spark:nth-child(2) { width: 12px; height: 12px; background: rgba(241, 196, 15, 0.72); top: 54%; left: 22%; animation-delay: 1.2s; }
+    .hero-spark:nth-child(3) { width: 10px; height: 10px; background: rgba(241, 196, 15, 0.6); top: 34%; left: 48%; animation-delay: 2.1s; }
+    .hero-cta {
+      animation: pulseGlow 4s ease-in-out infinite;
+      box-shadow: 0 0 0 rgba(208, 0, 0, 0);
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+    }
+    .newsletter-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(18,18,18,0.92), rgba(8,8,8,0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+    }
+    .newsletter-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(208, 0, 0, 0.16), transparent 35%, rgba(241, 196, 15, 0.12));
+      pointer-events: none;
+    }
+    .newsletter-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(208, 0, 0, 0.85), rgba(241, 196, 15, 0.85));
+      transform: translateX(-50%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .newsletter-input {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 25px rgba(255,255,255,0.03);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .newsletter-input:focus {
+      border-color: rgba(208, 0, 0, 0.9);
+      box-shadow: inset 0 0 30px rgba(208, 0, 0, 0.18);
+      transform: translateY(-1px);
+    }
+    .newsletter-btn {
+      background-image: linear-gradient(90deg, #d00000, #f1c40f, #d00000);
+      background-size: 200% 100%;
+      animation: shineMove 4s ease infinite;
+      box-shadow: 0 20px 45px rgba(208, 0, 0, 0.22);
+    }
+    .newsletter-btn:hover {
+      background-position: 100% 0;
+    }
+    .newsletter-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(208, 0, 0, 0.14);
+      color: #f1c40f;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      border: 1px solid rgba(241, 196, 15, 0.2);
+      box-shadow: 0 0 20px rgba(241, 196, 15, 0.1);
+    }
+    @keyframes floatPulse {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-12px) scale(1.08); opacity: 1; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(208, 0, 0, 0.24); }
+      50% { box-shadow: 0 0 60px 18px rgba(208, 0, 0, 0.12); }
+    }
+    @keyframes shineMove {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+    }
+    .scroll-hint {
+      animation: floatHint 2.8s ease-in-out infinite;
+    }
+    .scroll-arrow {
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @keyframes scrollBounce {
+      0% { transform: translateY(0); opacity: 0.9; }
+      50% { transform: translateY(8px); opacity: 0.4; }
+      100% { transform: translateY(0); opacity: 0.9; }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .page { display: none; }
+    .page.active-page { display: block; }
+    .nav-link.active-link {
+      color: #d00000;
+      font-weight: 600;
+      border-bottom: 2px solid #d00000;
+    }
+    .contact-panel {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-btn {
+      background: #d00000;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+    .contact-btn:hover { transform: translateY(-2px); }
+    .contact-btn.whatsapp { background: #25d366; }
+    .contact-btn.instagram { background: #c13584; }
+
+    @keyframes jumpIn {
+      0% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+      60% { transform: translateY(10px) scale(1.05); opacity: 1; }
+      100% { transform: translateY(0) scale(1); }
+    }
+    .jump-in { animation: jumpIn 0.8s ease-out; }
+  </style>
+</head>
+<body class="animated-bg">
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2" id="logoLink">
+        <img src="logo.jpg" alt="WMFC Logo" class="w-10 h-10 rounded-full object-cover" onerror="this.style.display='none'">
+        <span class="font-display text-xl font-bold text-white">Walhallas Marshal</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" data-page="home" class="nav-link text-sm text-white/70 hover:text-brand-red">Home</a>
+        <a href="#" data-page="matches" class="nav-link text-sm text-white/70 hover:text-brand-red">Matches</a>
+        <a href="#blog-research" class="blog-link text-sm text-white/70 hover:text-brand-red">Blog</a>
+        <a href="#" data-page="shop" class="nav-link text-sm text-white/70 hover:text-brand-red">Shop</a>
+        <a href="#" data-page="about" class="nav-link text-sm text-white/70 hover:text-brand-red">About</a>
+        <a href="#" data-page="contact" class="nav-link text-sm text-white/70 hover:text-brand-red">Contact</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="#newsletter" id="joinMovementBtn" class="px-5 py-2 bg-brand-red text-white font-semibold rounded-full text-sm hover:bg-brand-red-dark transition">Join Movement</a>
+      </div>
+
+      <button id="mobileMenuBtn" class="md:hidden">
+        <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-black/90 px-4 pb-4">
+      <a href="#" data-page="home" class="block py-2 text-white/70 mobile-link">Home</a>
+      <a href="#" data-page="matches" class="block py-2 text-white/70 mobile-link">Matches</a>
+      <a href="#blog-research" class="block py-2 text-white/70 mobile-link blog-link">Blog</a>
+      <a href="#" data-page="shop" class="block py-2 text-white/70 mobile-link">Shop</a>
+      <a href="#" data-page="about" class="block py-2 text-white/70 mobile-link">About</a>
+      <a href="#" data-page="contact" class="block py-2 text-white/70 mobile-link">Contact</a>
+      <a href="#newsletter" id="mobileJoinBtn" class="block py-2 text-brand-red font-semibold">Join Movement</a>
+    </div>
+  </nav>
+
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page active-page pt-16">
+    <section class="relative h-[90vh] flex items-center home-hero">
+      <div class="absolute inset-0 hero-overlay z-10"></div>
+      <div class="absolute inset-0 hero-glow z-20"></div>
+      <div class="hero-spark"></div>
+      <div class="hero-spark"></div>
+      <div class="hero-spark"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-transparent to-brand-black z-0"></div>
+      <div class="relative z-30 max-w-5xl mx-auto px-4 text-center">
+        <span class="inline-block px-4 py-1 bg-brand-red/20 border border-brand-red rounded-full text-sm text-brand-red font-bold uppercase tracking-wider mb-6">Est. 2024 · Pakistan</span>
+        <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white mb-4 jump-in">Walhallas Marshal FC</h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-8 font-semibold italic"><span class="text-brand-gold">Rising from the streets</span> to conquer.</p>
+        <p class="text-white/60 max-w-2xl mx-auto mb-10 text-sm md:text-base">A street‑born football club with a dream to become Pakistan’s greatest. We represent courage, unity, and the passion of the youth.</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="#newsletter" id="heroJoinBtn" class="hero-cta px-8 py-3 bg-gradient-to-r from-brand-red via-brand-gold to-brand-red-dark text-white font-bold rounded-full hover:opacity-95 transition">Join the Marshal Movement</a>
+          <a href="#" data-page="shop" class="px-8 py-3 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition nav-link">Shop Kits</a>
+        </div>
+        <a href="#newsletter" class="scroll-hint mt-12 inline-flex flex-col items-center gap-2 text-white/70 hover:text-white transition">
+          <span class="text-sm uppercase tracking-[0.3em]">Scroll down</span>
+          <span class="inline-flex h-14 w-8 items-center justify-center rounded-full border border-white/20">
+            <span class="scroll-arrow block h-2.5 w-2.5 rounded-full bg-white"></span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Newsletter Sign-up -->
+    <div id="newsletter" class="max-w-3xl mx-auto px-4 py-20">
+      <div class="newsletter-card rounded-2xl p-8 md:p-12 text-center">
+        <div class="newsletter-highlight">Subscribe for exclusive Marshal news</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Join the Marshal Movement</h2>
+        <p class="text-white/60 mb-8">Become part of the journey. Get exclusive updates, early merch access, and weekly inspiration.</p>
+        <form id="newsletterForm" action="https://formsubmit.co/ghostsiddi110@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true#newsletter">
+          <input type="hidden" name="subscriber_email" id="subscriberEmailField" value="">
+          <input type="hidden" name="_subject" value="Welcome to the Marshal Movement!">
+          <input type="hidden" name="_autoresponse" id="autoresponseField" value="Thanks for joining the Marshal Movement! We'll keep you updated with match reports, merch drops, and exclusive Marshal news.">
+          <input type="text" name="name" placeholder="Your Name" required class="newsletter-input w-full px-4 py-3 mb-3 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
+          <input type="email" id="newsletterEmail" name="_replyto" placeholder="Your Email" required class="newsletter-input w-full px-4 py-3 mb-4 rounded-full text-white placeholder-white/30 focus:outline-none focus:border-brand-red">
+          <button type="submit" class="newsletter-btn w-full py-3 text-white font-bold rounded-full hover:opacity-95 transition text-lg">Join Now</button>
+        </form>
+        <p id="newsletterMsg" class="mt-4 hidden rounded-2xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-100"></p>
+        <p class="text-white/30 text-xs mt-4">We'll never spam. You're family now.</p>
+      </div>
+    </div>
+
+    <!-- Blog Research Section -->
+    <section id="blog-research" class="max-w-7xl mx-auto px-4 py-16 fade-in">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+        <div>
+          <h2 class="section-heading text-4xl md:text-5xl font-display font-bold text-white">Football Culture & <span class="text-brand-red">Research</span></h2>
+          <p class="text-white/60 max-w-2xl mt-3">In-depth stories from across Pakistan that explore football culture, local history, youth development, and the fight for fair play.</p>
+        </div>
+        <span class="text-sm text-white/40 uppercase tracking-[0.2em]">Updated daily</span>
+      </div>
+      <div id="blogResearchContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="blogArticleDetail" class="blog-detail-card rounded-2xl p-8 mt-10 hidden">
+        <span id="detailBlogRegion" class="text-brand-red text-xs font-bold uppercase tracking-wider"></span>
+        <h3 id="detailBlogTitle" class="text-3xl md:text-4xl font-display font-bold text-white mt-3 mb-4"></h3>
+        <p id="detailBlogContent" class="text-white/70 leading-relaxed text-base md:text-lg"></p>
+        <p id="detailBlogHighlight" class="text-white/60 text-sm mt-6"></p>
+        <button id="closeBlogDetail" type="button" class="mt-8 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition">Close</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- MATCHES PAGE -->
+  <div id="matches-page" class="page pt-20">
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">⚽ <span class="text-brand-red">Matches</span></h1>
+      <div id="matchReportsContainer"></div>
+    </section>
+  </div>
+
+  <!-- SHOP PAGE (unchanged) -->
+  <div id="shop-page" class="page pt-20">
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Shop <span class="text-brand-red">Kits</span></h1>
+      <div id="productsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </section>
+  </div>
+
+  <!-- ABOUT PAGE (unchanged) -->
+  <div id="about-page" class="page pt-20">
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Our <span class="text-brand-red">Story</span></h1>
+      <div class="glass-card rounded-2xl p-8 md:p-12 text-white/80 leading-relaxed text-base md:text-lg">
+        <p class="mb-6">Walhallas Marshal FC was born in 2024 on the streets of Pakistan. A group of young footballers, led by our founder <span class="text-brand-red font-semibold">Ghost</span>, decided to stop dreaming and start building. With nothing but raw talent and unshakable brotherhood, we formed a club that represents every kid who ever kicked a ball on a dusty street.</p>
+        <p class="mb-6">Our mission is simple: <em class="text-white font-semibold">"Rising from the streets to conquer."</em> We aim to become Pakistan’s most recognised football brand — a symbol of courage, unity, and ambition.</p>
+        <p>We are more than a team. We are a movement. Welcome to the Marshal family.</p>
+      </div>
+
+      <!-- Our Info Section (unchanged) -->
+      <div class="mt-12">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6 jump-in">Our <span class="text-brand-red">Info</span></h2>
+        <div class="glass-card rounded-2xl p-8 md:p-12">
+          <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Players</span></h3>
+          <ul class="text-white/80 leading-relaxed mb-8">
+            <li>Ghost Marshal</li>
+            <li>Qasim Marshal</li>
+            <li>Hash Marshal</li>
+            <li>Muhammad Kabeer</li>
+            <li>Syed Abdulrehman</li>
+            <li>Rafay Siddiqui</li>
+            <li>Syed Abdullah</li>
+            <li>Nyxarc Rehman Booty</li>
+            <li>Shaffat</li>
+            <li>Zain</li>
+          </ul>
+          <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Management</span></h3>
+          <ul class="text-white/80 leading-relaxed mb-8">
+            <li>Syed Abdulrehman</li>
+            <li>Ghost</li>
+          </ul>
+          <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Coaches</span></h3>
+          <ul class="text-white/80 leading-relaxed mb-8">
+            <li>Wahab Alam</li>
+          </ul>
+          <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Training Facilities</span></h3>
+          <ul class="text-white/80 leading-relaxed">
+            <li>Spirit Field Academy - Spirit Field Indoor</li>
+            <li>Forza Academy - Jade Arena</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT PAGE (unchanged) -->
+  <div id="contact-page" class="page pt-20">
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Contact <span class="text-brand-red">Us</span></h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="https://wa.me/923139483901" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="message-circle" class="w-8 h-8 text-green-400 mx-auto mb-3"></i><h3 class="text-white font-bold">WhatsApp</h3><p class="text-white/60 text-sm mt-1">+92 313 9483901</p></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="mail" class="w-8 h-8 text-blue-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Email</h3><p class="text-white/60 text-sm mt-1">ghostsiddi110@gmail.com</p></a>
+        <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="glass-card p-6 rounded-2xl text-center hover:border-brand-red transition"><i data-lucide="instagram" class="w-8 h-8 text-pink-400 mx-auto mb-3"></i><h3 class="text-white font-bold">Instagram</h3><p class="text-white/60 text-sm mt-1">@walhallasmarshalsofficial</p></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER (unchanged) -->
+  <footer class="border-t border-white/10 py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/40 text-sm">© 2026 Walhallas Marshal FC. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" aria-label="Instagram" class="text-white/40 hover:text-pink-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+        <a href="https://wa.me/923139483901" target="_blank" aria-label="WhatsApp" class="text-white/40 hover:text-green-400"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CONTACT PANEL (unchanged) -->
+  <div class="contact-panel">
+    <a href="https://wa.me/923139483901" target="_blank" class="contact-btn whatsapp"><i data-lucide="message-circle" class="w-5 h-5"></i> Chat</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="contact-btn"><i data-lucide="mail" class="w-5 h-5"></i> Mail</a>
+    <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="contact-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i> Follow</a>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ========== DATA ARRAYS – JUST ADD/REMOVE OBJECTS HERE ==========
+    const products = [
+      { image: "jersey-home-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit", title: "Home Kit 2024", description: "Dri‑FIT ADV · Embroidered Crest", price: 45 },
+      { image: "jersey-away-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit", title: "Away Kit 2024", description: "Dri‑FIT · Lightweight", price: 45 },
+      { image: "jersey-training-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit", title: "Training Kit", description: "Breathable · Movement Fit", price: 45 },
+      { image: "jersey-gk-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=GK+Kit", title: "GK Kit 2024", description: "Breathable · Goalkeeper Fit", price: 45 },
+      { image: "jersey-street-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition", title: "Street Edition", description: "Limited · Urban Style", price: 45 }
+    ];
+
+    // THREE MATCH REPORTS – original 19‑4 win + new 12‑15 loss + 18‑17 win
+    const matchReports = [
+      {
+        title: "Walhallas Marshal FC 19 - 4 Shaani FC",
+        date: "Historic Win · Last Sunday",
+        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
+        summary: `A stunning display of attacking firepower saw Walhallas Marshal FC demolish Shaani FC in a fiery encounter. Captain Ghost Marshal pulled the strings, scoring 6 goals and providing an incredible 15 assists.`,
+        highlight: `Hash earned MVP with a sensational 8‑goal performance. The Marshals were unstoppable from the first whistle.`,
+        stats: [
+          { label: "Ghost (C)", value: "6 ⚽" },
+          { label: "Ghost Assists", value: "15 🅰️" },
+          { label: "Hash (MVP)", value: "8 ⚽" },
+          { label: "Full Time", value: "19 - 4" }
+        ]
+      },
+      {
+        title: "Walhallas FC 12 - 15 Shaani FC",
+        date: "Full Time · Recent Match",
+        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
+        summary: `A hard‑fought battle ended in defeat for the Marshals. Despite an electrifying start, Walhallas FC fell short against Shaani FC. Ghost Marshal was the creative force, topping the assist charts.`,
+        highlight: `Every player contributed to the scoresheet — a true team effort. The match showed the squad's depth and fighting spirit.`,
+        stats: [
+          { label: "Hash", value: "4 ⚽" },
+          { label: "Ghost (C)", value: "2 ⚽" },
+          { label: "Qasim", value: "2 ⚽" },
+          { label: "Nyxarc Booty", value: "1 ⚽" },
+          { label: "Syed Rehman", value: "1 ⚽" },
+          { label: "Rafay", value: "1 ⚽" },
+          { label: "Shaffat", value: "1 ⚽" }
+        ]
+      },
+      {
+        title: "Walhallas FC 18 - 17 Sir Syed Inter Team",
+        date: "Full Time · Epic Comeback",
+        venue: "WSSS",
+        summary: `An unbelievable comeback for the ages! Walhallas FC trailed late but Ghost Marshal and Hash took over, scoring 4 back‑to‑back goals in the last 4 minutes to seal a legendary victory.`,
+        highlight: `MVP Ghost Marshal scored 6 goals, including the dramatic winner. Hash added 5 goals, and the duo's partnership was unstoppable.`,
+        stats: [
+          { label: "Ghost (MVP)", value: "6 ⚽" },
+          { label: "Hash", value: "5 ⚽" },
+          { label: "Qasim", value: "4 ⚽" },
+          { label: "Abdullah", value: "1 ⚽" },
+          { label: "Syed Rehman", value: "1 ⚽" },
+          { label: "Nyxarc", value: "1 ⚽" }
+        ]
+      }
+    ];
+
+    const upcomingFixtures = []; // no upcoming fixtures
+
+    const blogResearchPosts = [
+      {
+        title: "Karachi Street Legends",
+        region: "Karachi",
+        date: "Today",
+        summary: "A cultural deep dive into Karachi's street football scene, where coastal neighborhoods and local markets shape a fearless playing style.",
+        highlight: "From Saddar lanes to Clifton sands, Karachi's football culture blends grit, creativity, and free-flowing flair.",
+        content: `Karachi's football culture is born in crowded alleys, improvised courts, and seaside parks. Players learn to read each other's movement instantly, using speed and instinct over structure. With every informal tournament, the city produces athletes who are fearless on the ball and comfortable taking risks. In this story, we visit neighborhoods from North Nazimabad to Lyari to capture how football grows where space is limited but passion is endless.`
+      },
+      {
+        title: "Lahore's Football Heritage",
+        region: "Lahore",
+        date: "Today",
+        summary: "Tracing Lahore's football history through old-school clubs, academy reform, and passionate fan traditions.",
+        highlight: "Every match in Lahore still carries the legacy of the National Football Championship era and decades of local rivalry.",
+        content: `Lahore has always been a football city, from the early days of the National Football Championship to the modern academy scene. Historic clubs, dusty fields, and intense derbies have shaped a community that loves the game. This article explores how Lahore's clubs are balancing tradition with new coaching methods, and how fans still gather in numbers to support local talent every weekend.`
+      },
+      {
+        title: "Islamabad's Academy Revolution",
+        region: "Islamabad",
+        date: "Today",
+        summary: "Profiling the capital's rising academies, university teams, and coaching changes that are redefining Pakistan's football future.",
+        highlight: "Islamabad is building a new generation of players on discipline, technique, and modern training methods.",
+        content: `Islamabad is rewriting the playbook for youth football in Pakistan. New academies are focusing on technique, nutrition, and analytics, while university teams create pathways to higher-level competition. We talk with coaches and young players who are trading old habits for structured training, and discover how the capital is becoming a breeding ground for the next generation of national-level talent.`
+      },
+      {
+        title: "Peshawar's Football Spirit",
+        region: "Peshawar",
+        date: "Today",
+        summary: "A story of resilience from KPK, where street tournaments and local identities keep football alive in every community.",
+        highlight: "In Peshawar, football means unity, strength, and tribal pride — played with heart across small fields and courts.",
+        content: `Peshawar's football scene is built on community and resilience. Despite limited infrastructure, local tournaments are a major event, and players carry the pride of their families onto the field. This story highlights how football brings people together in KPK, and how young athletes use the sport to build confidence, discipline, and a brighter future.`
+      },
+      {
+        title: "Quetta and Balochistan's Rise",
+        region: "Quetta",
+        date: "Today",
+        summary: "Documenting the growing football movement in Balochistan, from rugged terrains to club leagues and youth outreach programs.",
+        highlight: "Quetta's rising stars are turning regional hardship into a powerful new football story for Pakistan.",
+        content: `Football in Quetta is more than a pastime — it is a source of identity and hope. As youth leagues grow and coaches invest in local talent, Balochistan is producing players who are already attracting attention nationally. This feature looks at how grassroots football is changing lives in Quetta and how the region is preparing to become a stronger voice in Pakistan's football future.`
+      },
+      {
+        title: "Fair Play for Future Stars",
+        region: "Nationwide",
+        date: "Today",
+        summary: "How Pakistan can reduce corruption, expand open trials, and create fair chances for youth players across every province.",
+        highlight: "Transparent selection, improved scouting, and support for underrepresented talent are the foundation of a better football future.",
+        content: `Corruption in football selection and management stops many talented youth from being seen. To build a fair future, Pakistan needs open trials, transparent coaching academies, and independent scouting systems. This story explains the steps needed to remove bias, reward merit, and make sure talented youngsters from all provinces — even remote areas — get the chance to play and progress.`
+      }
+    ];
+
+    // ========== RENDERING FUNCTIONS ==========
+    function renderProducts() {
+      const container = document.getElementById('productsContainer');
+      if (!container) return;
+      container.innerHTML = products.map((p, index) => `
+        <div class="glass-card rounded-2xl overflow-hidden text-center">
+          <img src="${p.image}" alt="${p.title}" class="w-full h-64 object-cover" onerror="this.src='${p.fallback}'">
+          <div class="p-4">
+            <h3 class="text-white font-bold text-lg">${p.title}</h3>
+            <p class="text-white/50 text-sm">${p.description}</p>
+            <div class="text-2xl font-extrabold text-brand-red my-2">$${p.price}</div>
+            <a href="https://wa.me/923139483901?text=I%20want%20to%20order%20the%20${encodeURIComponent(p.title)}%20($${p.price})" target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2 bg-brand-red text-white rounded-full text-sm font-semibold hover:bg-brand-red-dark transition"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Order via WhatsApp</a>
+          </div>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    function renderMatchReports() {
+      const container = document.getElementById('matchReportsContainer');
+      if (!container) return;
+      container.innerHTML = matchReports.map((report, idx) => `
+        <div class="glass-card rounded-2xl p-6 md:p-10 mb-12">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">Match Result · ${report.date}</span>
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-white mt-2 mb-4">${report.title}</h2>
+          <p class="text-white/60 mb-4"><i class="inline-block mr-1" data-lucide="map-pin"></i> ${report.venue}</p>
+          <p class="text-white/70 leading-relaxed mb-6">${report.summary}</p>
+          <p class="text-white/70 leading-relaxed mb-6">${report.highlight || ''}</p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            ${report.stats.map(stat => `
+              <div class="bg-brand-red/10 border border-brand-red/30 rounded-xl px-5 py-3 text-center">
+                <span class="block text-2xl font-extrabold text-brand-red">${stat.value}</span>
+                <span class="text-xs text-white/60">${stat.label}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    function renderUpcomingFixtures() {
+      const container = document.getElementById('upcomingFixturesContainer');
+      if (container) container.innerHTML = '';
+    }
+
+    function renderBlogResearch() {
+      const container = document.getElementById('blogResearchContainer');
+      if (!container) return;
+      container.innerHTML = blogResearchPosts.map((post, idx) => `
+        <div class="blog-card rounded-2xl p-6">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${post.region} · ${post.date}</span>
+          <h3 class="text-2xl font-display font-bold text-white mt-3 mb-3">${post.title}</h3>
+          <p class="text-white/70 leading-relaxed mb-4">${post.summary}</p>
+          <p class="text-white/60 text-sm mb-6">${post.highlight}</p>
+          <button type="button" onclick="showBlogDetail(${idx})" class="read-more-btn inline-flex items-center justify-center rounded-full bg-brand-red px-5 py-2 text-sm font-semibold text-white hover:bg-brand-red-dark transition">Read More</button>
+        </div>
+      `).join('');
+      initIcons();
+    }
+
+    function showBlogDetail(index) {
+      const post = blogResearchPosts[index];
+      if (!post) return;
+      const detail = document.getElementById('blogArticleDetail');
+      const title = document.getElementById('detailBlogTitle');
+      const region = document.getElementById('detailBlogRegion');
+      const content = document.getElementById('detailBlogContent');
+      const highlight = document.getElementById('detailBlogHighlight');
+      const closeBtn = document.getElementById('closeBlogDetail');
+      if (!detail || !title || !region || !content || !highlight || !closeBtn) return;
+      region.textContent = `${post.region} · ${post.date}`;
+      title.textContent = post.title;
+      content.textContent = post.content;
+      highlight.textContent = post.highlight;
+      detail.classList.remove('hidden');
+      detail.scrollIntoView({ behavior: 'smooth' });
+      closeBtn.addEventListener('click', hideBlogDetail);
+    }
+
+    function hideBlogDetail() {
+      const detail = document.getElementById('blogArticleDetail');
+      if (detail) detail.classList.add('hidden');
+    }
+
+    function initIcons() {
+      try { if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch(e) {}
+    }
+
+    function showNewsletterStatus() {
+      const msg = document.getElementById('newsletterMsg');
+      if (!msg) return;
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('submitted') === 'true') {
+        msg.className = 'mt-4 rounded-2xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-100';
+        msg.textContent = '✅ Thank you! Your subscription was received. Stay tuned for exclusive Marshal updates.';
+        msg.classList.remove('hidden');
+        const newsletter = document.getElementById('newsletter');
+        if (newsletter) newsletter.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // ========== NAVIGATION AND CORE (unchanged) ==========
+    (function() {
+      function navigateTo(pageName) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        const target = document.getElementById(pageName + '-page');
+        if (target) target.classList.add('active-page');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active-link');
+          if (link.getAttribute('data-page') === pageName) link.classList.add('active-link');
+        });
+        setTimeout(initIcons, 50);
+      }
+
+      function bindNavigation() {
+        document.querySelectorAll('[data-page]').forEach(el => {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            if (page) navigateTo(page);
+          });
+        });
+        document.querySelectorAll('.blog-link').forEach(el => {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const scrollToBlog = () => {
+              const blogSection = document.getElementById('blog-research');
+              if (blogSection) blogSection.scrollIntoView({ behavior: 'smooth' });
+            };
+            if (!document.getElementById('home-page').classList.contains('active-page')) {
+              navigateTo('home');
+              setTimeout(scrollToBlog, 300);
+            } else {
+              scrollToBlog();
+            }
+          });
+        });
+        document.getElementById('logoLink').addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('home');
+        });
+        document.querySelectorAll('#joinMovementBtn, #heroJoinBtn, #mobileJoinBtn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newsletter = document.getElementById('newsletter');
+            if (newsletter) newsletter.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+
+      // Mobile menu
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function() {
+          const emailInput = newsletterForm.querySelector('input[name="_replyto"]');
+          const subscriberEmailField = newsletterForm.querySelector('input[name="subscriber_email"]');
+          const nameInput = newsletterForm.querySelector('input[name="name"]');
+          const autoresponseField = newsletterForm.querySelector('input[name="_autoresponse"]');
+          if (emailInput && subscriberEmailField) subscriberEmailField.value = emailInput.value;
+          if (nameInput && autoresponseField) {
+            const nameValue = nameInput.value.trim() || 'Marshal Fan';
+            autoresponseField.value = `Thanks ${nameValue} for joining the Marshal Movement! You're now part of the club. Check your inbox for match reports, merch drops, and exclusive Marshal updates, then visit https://ghostsiddi110-art.github.io/walhallas for daily news and research.`;
+          }
+        });
+      }
+
+      // Fade-in observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // Initial render
+      renderProducts();
+      renderMatchReports();
+      renderUpcomingFixtures();
+      renderBlogResearch();
+      initIcons();
+      bindNavigation();
+      showNewsletterStatus();
+    })();
+  </script>
+</body>
+</html>
