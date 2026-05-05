@@ -385,17 +385,11 @@
   <div id="matches-page" class="page pt-20">
     <section class="max-w-7xl mx-auto px-4 py-12">
       <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">⚽ <span class="text-brand-red">Matches</span></h1>
-
-      <!-- Past Match Reports (dynamically rendered) -->
       <div id="matchReportsContainer"></div>
-
-      <!-- Upcoming Fixtures (dynamically rendered) -->
-      <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">📅 Upcoming Fixtures</h2>
-      <div id="upcomingFixturesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </section>
   </div>
 
-  <!-- SHOP PAGE -->
+  <!-- SHOP PAGE (unchanged) -->
   <div id="shop-page" class="page pt-20">
     <section class="max-w-7xl mx-auto px-4 py-12">
       <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Shop <span class="text-brand-red">Kits</span></h1>
@@ -403,7 +397,7 @@
     </section>
   </div>
 
-  <!-- ABOUT PAGE -->
+  <!-- ABOUT PAGE (unchanged) -->
   <div id="about-page" class="page pt-20">
     <section class="max-w-4xl mx-auto px-4 py-12">
       <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Our <span class="text-brand-red">Story</span></h1>
@@ -413,10 +407,9 @@
         <p>We are more than a team. We are a movement. Welcome to the Marshal family.</p>
       </div>
 
-      <!-- Our Info Section -->
+      <!-- Our Info Section (unchanged) -->
       <div class="mt-12">
         <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6 jump-in">Our <span class="text-brand-red">Info</span></h2>
-        
         <div class="glass-card rounded-2xl p-8 md:p-12">
           <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Players</span></h3>
           <ul class="text-white/80 leading-relaxed mb-8">
@@ -428,19 +421,18 @@
             <li>Rafay Siddiqui</li>
             <li>Syed Abdullah</li>
             <li>Nyxarc Rehman Booty</li>
+            <li>Shaffat</li>
+            <li>Zain</li>
           </ul>
-          
           <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Management</span></h3>
           <ul class="text-white/80 leading-relaxed mb-8">
             <li>Syed Abdulrehman</li>
             <li>Ghost</li>
           </ul>
-          
           <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Coaches</span></h3>
           <ul class="text-white/80 leading-relaxed mb-8">
             <li>Wahab Alam</li>
           </ul>
-          
           <h3 class="text-2xl font-display font-bold text-white mb-4"><span class="text-brand-red">Training Facilities</span></h3>
           <ul class="text-white/80 leading-relaxed">
             <li>Spirit Field Academy - Spirit Field Indoor</li>
@@ -451,7 +443,7 @@
     </section>
   </div>
 
-  <!-- CONTACT PAGE -->
+  <!-- CONTACT PAGE (unchanged) -->
   <div id="contact-page" class="page pt-20">
     <section class="max-w-4xl mx-auto px-4 py-12">
       <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 jump-in">Contact <span class="text-brand-red">Us</span></h1>
@@ -463,7 +455,7 @@
     </section>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (unchanged) -->
   <footer class="border-t border-white/10 py-8 mt-auto">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-white/40 text-sm">© 2026 Walhallas Marshal FC. All rights reserved.</p>
@@ -474,7 +466,7 @@
     </div>
   </footer>
 
-  <!-- FLOATING CONTACT PANEL -->
+  <!-- FLOATING CONTACT PANEL (unchanged) -->
   <div class="contact-panel">
     <a href="https://wa.me/923139483901" target="_blank" class="contact-btn whatsapp"><i data-lucide="message-circle" class="w-5 h-5"></i> Chat</a>
     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="contact-btn"><i data-lucide="mail" class="w-5 h-5"></i> Mail</a>
@@ -485,82 +477,62 @@
   <script>
     // ========== DATA ARRAYS – JUST ADD/REMOVE OBJECTS HERE ==========
     const products = [
-      {
-        image: "jersey-home-kit.jpg",
-        fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit",
-        title: "Home Kit 2024",
-        description: "Dri‑FIT ADV · Embroidered Crest",
-        price: 45,
-      },
-      {
-        image: "jersey-away-kit.jpg",
-        fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit",
-        title: "Away Kit 2024",
-        description: "Dri‑FIT · Lightweight",
-        price: 45,
-      },
-      {
-        image: "jersey-training-kit.jpg",
-        fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit",
-        title: "Training Kit",
-        description: "Breathable · Movement Fit",
-        price: 45,
-      },
-      {
-        image: "jersey-gk-kit.jpg",
-        fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=GK+Kit",
-        title: "GK Kit 2024",
-        description: "Breathable · Goalkeeper Fit",
-        price: 45,
-      },
-      {
-        image: "jersey-street-kit.jpg",
-        fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition",
-        title: "Street Edition",
-        description: "Limited · Urban Style",
-        price: 45,
-      }
-      // TO ADD A NEW ITEM, just add another object like the ones above
+      { image: "jersey-home-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit", title: "Home Kit 2024", description: "Dri‑FIT ADV · Embroidered Crest", price: 45 },
+      { image: "jersey-away-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit", title: "Away Kit 2024", description: "Dri‑FIT · Lightweight", price: 45 },
+      { image: "jersey-training-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit", title: "Training Kit", description: "Breathable · Movement Fit", price: 45 },
+      { image: "jersey-gk-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=GK+Kit", title: "GK Kit 2024", description: "Breathable · Goalkeeper Fit", price: 45 },
+      { image: "jersey-street-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition", title: "Street Edition", description: "Limited · Urban Style", price: 45 }
     ];
 
+    // THREE MATCH REPORTS – original 19‑4 win + new 12‑15 loss + 18‑17 win
     const matchReports = [
       {
-        title: "Walhallas Marshal FC 19 - 5 Shaani FC",
-        date: "Last Sunday",
+        title: "Walhallas Marshal FC 19 - 4 Shaani FC",
+        date: "Historic Win · Last Sunday",
         venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
-        summary: `A stunning display of attacking firepower saw Walhallas Marshal FC demolish Shaani FC in a fiery encounter last Sunday.
-          The Marshals were unstoppable from the first whistle, with captain <strong class="text-brand-red">Ghost Marshal</strong> pulling all the strings.
-          He not only bagged <strong>6 goals</strong> but also provided an incredible <strong>15 assists</strong>, setting up teammates time and again.`,
-        highlight: `The star of the show was <strong class="text-brand-red">Hash</strong>, who earned the <strong>MVP</strong> award with a sensational <strong>8‑goal</strong> performance.
-          Every shot seemed to find the back of the net as Hash ran the Shaani defence ragged.`,
+        summary: `A stunning display of attacking firepower saw Walhallas Marshal FC demolish Shaani FC in a fiery encounter. Captain Ghost Marshal pulled the strings, scoring 6 goals and providing an incredible 15 assists.`,
+        highlight: `Hash earned MVP with a sensational 8‑goal performance. The Marshals were unstoppable from the first whistle.`,
         stats: [
           { label: "Ghost (C)", value: "6 ⚽" },
           { label: "Ghost Assists", value: "15 🅰️" },
           { label: "Hash (MVP)", value: "8 ⚽" },
-          { label: "Full Time", value: "19 - 5" }
+          { label: "Full Time", value: "19 - 4" }
         ]
-      }
-      // ADD MORE MATCH REPORTS HERE
-    ];
-
-    const upcomingFixtures = [
-      {
-        date: "Sunday · 3rd May",
-        time: "7 to 8 PM",
-        home: "Walhallas FC",
-        away: "Shaani FC",
-        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal"
       },
       {
-        date: "Saturday · Match Day",
-        time: "6 to 7 PM",
-        home: "Walhallas FC",
-        away: "Sir Syed Inter Team",
+        title: "Walhallas FC 12 - 15 Shaani FC",
+        date: "Full Time · Recent Match",
+        venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
+        summary: `A hard‑fought battle ended in defeat for the Marshals. Despite an electrifying start, Walhallas FC fell short against Shaani FC. Ghost Marshal was the creative force, topping the assist charts.`,
+        highlight: `Every player contributed to the scoresheet — a true team effort. The match showed the squad's depth and fighting spirit.`,
+        stats: [
+          { label: "Hash", value: "4 ⚽" },
+          { label: "Ghost (C)", value: "2 ⚽" },
+          { label: "Qasim", value: "2 ⚽" },
+          { label: "Nyxarc Booty", value: "1 ⚽" },
+          { label: "Syed Rehman", value: "1 ⚽" },
+          { label: "Rafay", value: "1 ⚽" },
+          { label: "Shaffat", value: "1 ⚽" }
+        ]
+      },
+      {
+        title: "Walhallas FC 18 - 17 Sir Syed Inter Team",
+        date: "Full Time · Epic Comeback",
         venue: "WSSS",
-        lineup: "Lineup: Qasim, Ghost, Hash, Abdulrehman, Rehman Booty, Abdullah"
+        summary: `An unbelievable comeback for the ages! Walhallas FC trailed late but Ghost Marshal and Hash took over, scoring 4 back‑to‑back goals in the last 4 minutes to seal a legendary victory.`,
+        highlight: `MVP Ghost Marshal scored 6 goals, including the dramatic winner. Hash added 5 goals, and the duo's partnership was unstoppable.`,
+        stats: [
+          { label: "Ghost (MVP)", value: "6 ⚽" },
+          { label: "Hash", value: "5 ⚽" },
+          { label: "Qasim", value: "4 ⚽" },
+          { label: "Abdullah", value: "1 ⚽" },
+          { label: "Syed Rehman", value: "1 ⚽" },
+          { label: "Nyxarc", value: "1 ⚽" }
+        ]
       }
-      // ADD MORE FIXTURES THE SAME WAY
     ];
+
+    const upcomingFixtures = []; // no upcoming fixtures
 
     const blogResearchPosts = [
       {
@@ -619,17 +591,12 @@
       if (!container) return;
       container.innerHTML = products.map((p, index) => `
         <div class="glass-card rounded-2xl overflow-hidden text-center">
-          <img src="${p.image}" alt="${p.title}" class="w-full h-64 object-cover" 
-               onerror="this.src='${p.fallback}'">
+          <img src="${p.image}" alt="${p.title}" class="w-full h-64 object-cover" onerror="this.src='${p.fallback}'">
           <div class="p-4">
             <h3 class="text-white font-bold text-lg">${p.title}</h3>
             <p class="text-white/50 text-sm">${p.description}</p>
             <div class="text-2xl font-extrabold text-brand-red my-2">$${p.price}</div>
-            <a href="https://wa.me/923139483901?text=I%20want%20to%20order%20the%20${encodeURIComponent(p.title)}%20($${p.price})" 
-               target="_blank" 
-               class="inline-flex items-center justify-center gap-2 px-5 py-2 bg-brand-red text-white rounded-full text-sm font-semibold hover:bg-brand-red-dark transition">
-              <i data-lucide="shopping-cart" class="w-4 h-4"></i> Order via WhatsApp
-            </a>
+            <a href="https://wa.me/923139483901?text=I%20want%20to%20order%20the%20${encodeURIComponent(p.title)}%20($${p.price})" target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2 bg-brand-red text-white rounded-full text-sm font-semibold hover:bg-brand-red-dark transition"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Order via WhatsApp</a>
           </div>
         </div>
       `).join('');
@@ -641,7 +608,7 @@
       if (!container) return;
       container.innerHTML = matchReports.map((report, idx) => `
         <div class="glass-card rounded-2xl p-6 md:p-10 mb-12">
-          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">Match Report · ${report.date}</span>
+          <span class="text-brand-red text-xs font-bold uppercase tracking-wider">Match Result · ${report.date}</span>
           <h2 class="text-3xl md:text-4xl font-display font-bold text-white mt-2 mb-4">${report.title}</h2>
           <p class="text-white/60 mb-4"><i class="inline-block mr-1" data-lucide="map-pin"></i> ${report.venue}</p>
           <p class="text-white/70 leading-relaxed mb-6">${report.summary}</p>
@@ -661,25 +628,7 @@
 
     function renderUpcomingFixtures() {
       const container = document.getElementById('upcomingFixturesContainer');
-      if (!container) return;
-      container.innerHTML = upcomingFixtures.map(fix => `
-        <div class="glass-card rounded-2xl p-6 flex flex-col">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-brand-red text-xs font-bold uppercase tracking-wider">${fix.date}</span>
-            <span class="text-white/40 text-xs">${fix.time}</span>
-          </div>
-          <div class="flex items-center justify-between gap-4 mb-6">
-            <div class="text-center flex-1"><span class="text-xl font-display font-bold text-white">${fix.home}</span></div>
-            <span class="text-lg font-bold text-white/50">VS</span>
-            <div class="text-center flex-1"><span class="text-xl font-display font-bold text-white">${fix.away}</span></div>
-          </div>
-          <div class="mt-auto flex items-center gap-2 text-white/50 text-sm">
-            <i data-lucide="map-pin" class="w-4 h-4"></i> ${fix.venue}
-          </div>
-          ${fix.lineup ? `<p class="text-white/50 text-sm mt-2">${fix.lineup}</p>` : ''}
-        </div>
-      `).join('');
-      initIcons();
+      if (container) container.innerHTML = '';
     }
 
     function renderBlogResearch() {
@@ -721,7 +670,6 @@
       if (detail) detail.classList.add('hidden');
     }
 
-    // Safe icon init
     function initIcons() {
       try { if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch(e) {}
     }
@@ -739,7 +687,7 @@
       }
     }
 
-    // ========== NAVIGATION AND CORE ==========
+    // ========== NAVIGATION AND CORE (unchanged) ==========
     (function() {
       function navigateTo(pageName) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
