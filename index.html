@@ -18,21 +18,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            navy: '#0a1628',
-                            'navy-light': '#152240',
-                            red: '#cd122d',
-                            'red-dark': '#a50f25',
+                            black: '#0a0a0a',
+                            'black-light': '#1a1a1a',
+                            red: '#e60000',
+                            'red-dark': '#b30000',
                             gold: '#f1c40f',
                             white: '#ffffff',
-                            gray: '#1a1a1a',
-                            'gray-light': '#f4f5f7',
-                            'gray-mid': '#c4c8cc',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'Montserrat', 'sans-serif'],
                         display: ['Oswald', 'sans-serif'],
-                        condensed: ['Oswald', 'sans-serif'],
                     },
                 }
             }
@@ -45,38 +41,35 @@
 
     <style>
         :root {
-            --navy: #0a1628;
-            --navy-light: #152240;
-            --red: #cd122d;
-            --red-dark: #a50f25;
+            --bg: #0a0a0a;
+            --bg-card: #111;
+            --red: #e60000;
+            --red-dark: #b30000;
             --gold: #f1c40f;
-            --white: #ffffff;
-            --gray-bg: #f4f5f7;
-            --gray-border: #e0e2e5;
-            --text-dark: #1a1a1a;
-            --text-mid: #555;
-            --text-light: #888;
+            --text: #fff;
+            --text-muted: #aaa;
+            --border: rgba(255,255,255,0.1);
         }
         body {
-            background: var(--gray-bg);
+            background: var(--bg);
             font-family: 'Inter', 'Montserrat', sans-serif;
-            color: var(--text-dark);
+            color: var(--text);
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── Top Navigation Bar (Barça‑style) ── */
+        /* ── Top Navigation (Red/Black) ── */
         .top-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
-            background: var(--navy);
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
             height: 56px;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            border-bottom: 1px solid rgba(230,0,0,0.3);
         }
         .top-nav .nav-inner {
             max-width: 1280px;
@@ -103,7 +96,7 @@
         }
         .top-nav .nav-logo span {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 0.5px;
@@ -113,8 +106,6 @@
             display: flex;
             align-items: center;
             gap: 0.2rem;
-            flex-wrap: nowrap;
-            overflow-x: auto;
         }
         .top-nav .nav-links a {
             display: block;
@@ -123,7 +114,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.2s;
@@ -133,7 +124,7 @@
         .top-nav .nav-links a:hover,
         .top-nav .nav-links a.active-link {
             color: #fff;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(230,0,0,0.2);
         }
         .top-nav .nav-links a.active-link::after {
             content: '';
@@ -161,26 +152,26 @@
             text-decoration: none;
             transition: background 0.2s;
             white-space: nowrap;
-            flex-shrink: 0;
         }
         .top-nav .nav-cta:hover {
             background: var(--red-dark);
         }
 
-        /* ── Bottom Floating Bar (Barça‑style) ── */
+        /* ── Bottom Floating Bar ── */
         .bottom-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 90;
-            background: #fff;
-            border-top: 1px solid var(--gray-border);
+            background: rgba(10,10,10,0.95);
+            border-top: 1px solid rgba(230,0,0,0.3);
+            backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-around;
             align-items: center;
             padding: 0.5rem 0.25rem;
-            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 -2px 12px rgba(230,0,0,0.15);
         }
         .bottom-bar a {
             display: flex;
@@ -188,7 +179,7 @@
             align-items: center;
             gap: 2px;
             text-decoration: none;
-            color: var(--text-mid);
+            color: #aaa;
             font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -210,7 +201,7 @@
             margin-top: 56px;
             position: relative;
             min-height: 420px;
-            background: linear-gradient(135deg, var(--navy) 0%, #1a2a4a 50%, var(--navy) 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -219,8 +210,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 30%, rgba(205, 18, 45, 0.25) 0%, transparent 50%),
-                radial-gradient(ellipse at 30% 70%, rgba(241, 196, 15, 0.12) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 70% 30%, rgba(230,0,0,0.3) 0%, transparent 50%),
+                        radial-gradient(ellipse at 30% 70%, rgba(241,196,15,0.1) 0%, transparent 50%);
             pointer-events: none;
         }
         .hero-content {
@@ -240,7 +231,7 @@
             gap: 0.5rem;
             padding: 0.35rem 1rem;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(230,0,0,0.2);
             color: var(--gold);
             font-size: 0.7rem;
             font-weight: 700;
@@ -251,15 +242,21 @@
         }
         .hero-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             color: #fff;
             line-height: 1.1;
             letter-spacing: -0.02em;
+            animation: jumpIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+        }
+        @keyframes jumpIn {
+            0% { transform: translateY(-60px) scale(0.8); opacity: 0; }
+            60% { transform: translateY(10px) scale(1.05); opacity: 1; }
+            100% { transform: translateY(0) scale(1); }
         }
         .hero-subtitle {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             max-width: 550px;
             line-height: 1.5;
         }
@@ -283,15 +280,13 @@
             text-decoration: none;
             transition: background 0.2s;
         }
-        .btn-primary:hover {
-            background: var(--red-dark);
-        }
+        .btn-primary:hover { background: var(--red-dark); }
         .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             padding: 0.65rem 1.5rem;
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            border: 1.5px solid rgba(230,0,0,0.5);
             color: #fff;
             font-size: 0.8rem;
             font-weight: 700;
@@ -302,11 +297,11 @@
             transition: all 0.2s;
         }
         .btn-outline:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--red);
+            background: rgba(230,0,0,0.15);
         }
 
-        /* ── Section Headers (Barça‑style) ── */
+        /* ── Section headers with lighting effect ── */
         .section-header {
             display: flex;
             align-items: center;
@@ -326,38 +321,40 @@
             font-family: 'Oswald', sans-serif;
             font-size: 1.75rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.15;
+            text-shadow: 0 0 10px rgba(230,0,0,0.5);
+            animation: headingGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes headingGlow {
+            from { text-shadow: 0 0 8px rgba(230,0,0,0.4); }
+            to { text-shadow: 0 0 16px rgba(230,0,0,0.7), 0 0 24px rgba(230,0,0,0.3); }
         }
         @media (min-width: 768px) {
-            .section-heading {
-                font-size: 2.25rem;
-            }
+            .section-heading { font-size: 2.25rem; }
         }
         .section-link {
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--navy);
+            color: var(--red);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
             transition: color 0.2s;
         }
-        .section-link:hover {
-            color: var(--red);
-        }
+        .section-link:hover { color: #fff; }
 
-        /* ── Cards ── */
-        .card-white {
-            background: #fff;
+        /* ── Cards (dark style) ── */
+        .card-dark {
+            background: var(--bg-card);
             border-radius: 8px;
-            border: 1px solid var(--gray-border);
+            border: 1px solid rgba(230,0,0,0.2);
             overflow: hidden;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
-        .card-white:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        .card-dark:hover {
+            box-shadow: 0 8px 30px rgba(230,0,0,0.15);
             transform: translateY(-3px);
         }
         .card-img {
@@ -380,20 +377,20 @@
             font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.25;
             margin: 0.3rem 0;
         }
         .card-text {
             font-size: 0.8rem;
-            color: var(--text-mid);
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* ── Match Card (compact, horizontal scroll) ── */
+        /* ── Match card ── */
         .match-card {
-            background: #fff;
-            border: 1px solid var(--gray-border);
+            background: var(--bg-card);
+            border: 1px solid rgba(230,0,0,0.25);
             border-radius: 8px;
             padding: 1rem 1.25rem;
             min-width: 280px;
@@ -404,7 +401,7 @@
             transition: box-shadow 0.2s;
         }
         .match-card:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(230,0,0,0.2);
         }
         .match-card .match-date {
             font-size: 0.6rem;
@@ -422,31 +419,31 @@
         .match-card .match-teams span {
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--text);
             font-size: 1rem;
         }
         .match-card .match-score {
             font-family: 'Oswald', sans-serif;
             font-size: 1.4rem;
             font-weight: 800;
-            color: var(--navy);
+            color: var(--red);
         }
         .match-card .match-venue {
             font-size: 0.7rem;
-            color: var(--text-light);
+            color: var(--text-muted);
         }
 
         /* ── Shop card ── */
         .shop-card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: 8px;
-            border: 1px solid var(--gray-border);
+            border: 1px solid rgba(230,0,0,0.15);
             overflow: hidden;
             transition: all 0.3s ease;
             text-align: center;
         }
         .shop-card:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(230,0,0,0.2);
             transform: translateY(-3px);
         }
         .shop-card img {
@@ -457,12 +454,13 @@
 
         /* ── Footer ── */
         .site-footer {
-            background: var(--navy);
-            color: rgba(255, 255, 255, 0.7);
+            background: var(--bg);
+            color: var(--text-muted);
             padding: 2.5rem 1rem 6rem;
+            border-top: 1px solid rgba(230,0,0,0.3);
         }
         .site-footer h5 {
-            color: #fff;
+            color: var(--text);
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -470,37 +468,23 @@
             margin-bottom: 1rem;
         }
         .site-footer a {
-            color: rgba(255, 255, 255, 0.55);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.8rem;
             display: block;
             margin-bottom: 0.5rem;
             transition: color 0.2s;
         }
-        .site-footer a:hover {
-            color: #fff;
-        }
+        .site-footer a:hover { color: var(--red); }
 
         /* ── Page system ── */
-        .page {
-            display: none;
-        }
-        .page.active-page {
-            display: block;
-        }
+        .page { display: none; }
+        .page.active-page { display: block; }
 
         /* ── Scrollbar ── */
-        ::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f0f0f0;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c0c0c0;
-            border-radius: 3px;
-        }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
 
         /* ── Fade-in ── */
         .fade-in {
@@ -515,19 +499,9 @@
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .top-nav .nav-links {
-                display: none;
-            }
-            .top-nav .nav-cta {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.65rem;
-            }
-            .hero-section {
-                min-height: 320px;
-            }
-            .hero-content {
-                padding: 1.5rem 1rem;
-            }
+            .top-nav .nav-links { display: none; }
+            .hero-section { min-height: 320px; }
+            .hero-content { padding: 1.5rem 1rem; }
             .match-scroll {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -540,12 +514,10 @@
             position: fixed;
             inset: 0;
             z-index: 200;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.7);
             display: none;
         }
-        .mobile-menu-overlay.open {
-            display: block;
-        }
+        .mobile-menu-overlay.open { display: block; }
         .mobile-menu-panel {
             position: fixed;
             top: 0;
@@ -553,44 +525,40 @@
             bottom: 0;
             width: 280px;
             z-index: 210;
-            background: #fff;
+            background: #111;
+            border-right: 1px solid rgba(230,0,0,0.3);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
             overflow-y: auto;
             padding: 1.5rem;
         }
-        .mobile-menu-panel.open {
-            transform: translateX(0);
-        }
+        .mobile-menu-panel.open { transform: translateX(0); }
         .mobile-menu-panel a {
             display: block;
             padding: 0.7rem 0;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid var(--gray-border);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .mobile-menu-panel a:hover {
-            color: var(--red);
-        }
+        .mobile-menu-panel a:hover { color: var(--red); }
 
         /* ── Blog modal ── */
         .modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 300;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0,0,0,0.8);
             display: none;
             align-items: center;
             justify-content: center;
             padding: 1rem;
         }
-        .modal-overlay.open {
-            display: flex;
-        }
+        .modal-overlay.open { display: flex; }
         .modal-content {
-            background: #fff;
+            background: #111;
+            border: 1px solid rgba(230,0,0,0.3);
             border-radius: 12px;
             max-width: 700px;
             width: 100%;
@@ -598,6 +566,7 @@
             overflow-y: auto;
             padding: 2rem;
             position: relative;
+            color: var(--text);
         }
         .modal-close {
             position: absolute;
@@ -668,7 +637,7 @@
             </div>
         </section>
 
-        <!-- ═══ MATCH RESULTS & UPCOMING (horizontal scroll) ═══ -->
+        <!-- ═══ MATCH RESULTS & UPCOMING ═══ -->
         <section style="max-width:1280px;margin:0 auto;padding:2rem 1rem;" class="fade-in" id="matchScroll">
             <div class="section-header">
                 <div>
@@ -680,7 +649,7 @@
             <div class="match-scroll" style="display:flex;gap:1rem;overflow-x:auto;padding-bottom:0.5rem;" id="homeMatchCards"></div>
         </section>
 
-        <!-- ═══ MARSHAL STORIES (news grid) ═══ -->
+        <!-- ═══ MARSHAL STORIES ═══ -->
         <section style="max-width:1280px;margin:0 auto;padding:1.5rem 1rem 2.5rem;" class="fade-in">
             <div class="section-header">
                 <div>
@@ -706,15 +675,15 @@
 
         <!-- ═══ NEWSLETTER ═══ -->
         <section id="newsletter" style="max-width:700px;margin:0 auto;padding:2rem 1rem 3rem;" class="fade-in">
-            <div class="card-white" style="padding:2rem;text-align:center;">
+            <div class="card-dark" style="padding:2rem;text-align:center;">
                 <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--red);">Newsletter</span>
-                <h3 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text-dark);margin:0.5rem 0;">Join the Marshal Movement</h3>
-                <p style="color:var(--text-mid);font-size:0.9rem;margin-bottom:1.5rem;">Get exclusive updates, early merch access, and weekly inspiration — straight to your inbox.</p>
+                <h3 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text);margin:0.5rem 0;">Join the Marshal Movement</h3>
+                <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Get exclusive updates, early merch access, and weekly inspiration — straight to your inbox.</p>
                 <form id="newsletterForm" action="https://formsubmit.co/ghostsiddi110@gmail.com" method="POST" style="display:flex;flex-wrap:wrap;gap:0.5rem;max-width:450px;margin:0 auto;">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://ghostsiddi110-art.github.io/walhallas?submitted=true#newsletter">
-                    <input type="text" name="name" placeholder="Your Name" required style="flex:1;min-width:140px;padding:0.6rem 1rem;border:1px solid var(--gray-border);border-radius:6px;font-size:0.85rem;">
-                    <input type="email" name="_replyto" placeholder="Your Email" required style="flex:1;min-width:140px;padding:0.6rem 1rem;border:1px solid var(--gray-border);border-radius:6px;font-size:0.85rem;">
+                    <input type="text" name="name" placeholder="Your Name" required style="flex:1;min-width:140px;padding:0.6rem 1rem;border:1px solid rgba(230,0,0,0.3);background:#1a1a1a;border-radius:6px;font-size:0.85rem;color:#fff;">
+                    <input type="email" name="_replyto" placeholder="Your Email" required style="flex:1;min-width:140px;padding:0.6rem 1rem;border:1px solid rgba(230,0,0,0.3);background:#1a1a1a;border-radius:6px;font-size:0.85rem;color:#fff;">
                     <button type="submit" style="padding:0.6rem 1.5rem;background:var(--red);color:#fff;border:none;border-radius:6px;font-weight:700;font-size:0.85rem;cursor:pointer;">Subscribe</button>
                 </form>
                 <p id="newsletterMsg" style="margin-top:0.75rem;font-size:0.85rem;display:none;"></p>
@@ -730,7 +699,7 @@
             <div id="fullMatchReports" style="display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem;"></div>
             <div style="margin-top:2.5rem;">
                 <span class="section-label">Most Awaited</span>
-                <h2 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text-dark);margin-bottom:1rem;">Upcoming <span style="color:var(--red);">Fixtures</span></h2>
+                <h2 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text);margin-bottom:1rem;">Upcoming <span style="color:var(--red);">Fixtures</span></h2>
                 <div id="upcomingFixturesContainer" style="display:flex;flex-direction:column;gap:1rem;"></div>
             </div>
         </section>
@@ -741,7 +710,7 @@
         <section style="max-width:1280px;margin:0 auto;padding:2rem 1rem;">
             <span class="section-label">Insights</span>
             <h1 class="section-heading">Marshal <span style="color:var(--red);">Stories</span></h1>
-            <p style="color:var(--text-mid);margin-bottom:1.5rem;">In‑depth stories from across Pakistan exploring football culture, corruption‑free pathways, and the clubs shaping our future.</p>
+            <p style="color:var(--text-muted);margin-bottom:1.5rem;">In‑depth stories from across Pakistan exploring football culture, corruption‑free pathways, and the clubs shaping our future.</p>
             <div id="fullStoriesGrid" class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;"></div>
         </section>
     </div>
@@ -755,30 +724,40 @@
         </section>
     </div>
 
-    <!-- ═══ CLUB PAGE ═══ -->
+    <!-- ═══ CLUB PAGE (WITH OVR RATINGS) ═══ -->
     <div id="club-page" class="page" style="padding-top:72px;">
         <section style="max-width:1000px;margin:0 auto;padding:2rem 1rem;">
             <span class="section-label">Club</span>
             <h1 class="section-heading">Our <span style="color:var(--red);">Story</span></h1>
-            <div class="card-white" style="padding:2rem;margin-bottom:2rem;line-height:1.7;color:var(--text-mid);">
+            <div class="card-dark" style="padding:2rem;margin-bottom:2rem;line-height:1.7;color:var(--text-muted);">
                 <p style="margin-bottom:1rem;">Walhallas Marshal FC was born in <strong style="color:var(--red);">2024</strong> on the streets of Pakistan. A group of young footballers, led by our founder <strong style="color:var(--red);">Ghost</strong>, decided to stop dreaming and start building — with nothing but raw talent and unshakable brotherhood.</p>
                 <p style="margin-bottom:1rem;">Our mission: <em>"Rising from the streets to conquer."</em> We aim to become Pakistan's most recognised football brand — a symbol of courage, unity, and ambition.</p>
                 <p>We are more than a team. We are a movement. Welcome to the Marshal family.</p>
             </div>
 
-            <h2 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text-dark);margin-bottom:1rem;">Marshal <span style="color:var(--red);">Players</span></h2>
-            <div class="card-white" style="padding:1.5rem;">
-                <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.75rem;text-align:center;">
-                    <div style="padding:0.75rem;background:#f8f9fa;border-radius:6px;"><strong>Ghost Marshal</strong><br><span style="color:var(--red);font-size:0.7rem;font-weight:700;">Captain</span></div>
-                    <div style="padding:0.75rem;background:#f8f9fa;border-radius:6px;"><strong>Rafay Siddiqui</strong></div>
-                    <div style="padding:0.75rem;background:#f8f9fa;border-radius:6px;"><strong>Nyxarc</strong></div>
-                    <div style="padding:0.75rem;background:#f8f9fa;border-radius:6px;"><strong>Shaffat</strong></div>
-                    <div style="padding:0.75rem;background:#f8f9fa;border-radius:6px;"><strong>Zain JR</strong></div>
-                </div>
-                <div class="grid" style="grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
-                    <div><span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">Coaches</span><p style="color:var(--text-mid);font-size:0.85rem;">Wahab Alam</p></div>
-                    <div><span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">Training Facilities</span><p style="color:var(--text-mid);font-size:0.85rem;">Spirit Field Academy · Forza Academy – Jade Arena</p></div>
-                </div>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">President</h2>
+            <div class="card-dark" style="padding:1.25rem;margin-bottom:1.5rem; background: linear-gradient(135deg, #2a0000 0%, #111 100%); border-left: 4px solid var(--red);">
+                <span style="font-size:1rem; font-weight:700; color:var(--text);">Ghost Marshal</span> <span style="font-size:0.7rem; color:var(--red); font-weight:700; text-transform:uppercase;">Founder & Midfielder</span>
+            </div>
+
+            <h2 style="font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">Captain</h2>
+            <div class="card-dark" style="padding:1.25rem;margin-bottom:1.5rem; background: linear-gradient(135deg, #2a0000 0%, #111 100%); border-left: 4px solid var(--red);">
+                <span style="font-size:1rem; font-weight:700; color:var(--text);">Qasim Marshal</span> <span style="font-size:0.7rem; color:var(--red); font-weight:700; text-transform:uppercase;">Captain & Forward</span>
+            </div>
+
+            <h2 style="font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">Management</h2>
+            <div class="card-dark" style="padding:1.25rem;margin-bottom:2rem;">
+                <span style="font-size:1rem; font-weight:700; color:var(--text);">Syed Abdulrehman</span> <span style="font-size:0.7rem; color:var(--red); font-weight:700; text-transform:uppercase;">Management Lead</span>
+            </div>
+
+            <h2 style="font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text);margin-bottom:1.5rem;margin-top:2rem;">Marshal <span style="color:var(--red);">Players</span></h2>
+            <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;" id="playerCardsContainer">
+                <!-- injected by JS -->
+            </div>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;">
+                <div><span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">Coaches</span><p style="color:var(--text-muted);font-size:0.85rem;">Wahab Alam</p></div>
+                <div><span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">Training Facilities</span><p style="color:var(--text-muted);font-size:0.85rem;">Spirit Field Academy · Forza Academy – Jade Arena</p></div>
             </div>
         </section>
     </div>
@@ -789,20 +768,20 @@
             <span class="section-label">Get In Touch</span>
             <h1 class="section-heading">Contact <span style="color:var(--red);">Us</span></h1>
             <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem;">
-                <a href="https://wa.me/923139483901" target="_blank" class="card-white" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
+                <a href="https://wa.me/923139483901" target="_blank" class="card-dark" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
                     <i data-lucide="message-circle" style="width:32px;height:32px;color:#25d366;margin:0 auto 0.5rem;"></i>
-                    <h3 style="font-weight:700;color:var(--text-dark);">WhatsApp</h3>
-                    <p style="color:var(--text-mid);font-size:0.8rem;">+92 313 9483901</p>
+                    <h3 style="font-weight:700;color:var(--text);">WhatsApp</h3>
+                    <p style="color:var(--text-muted);font-size:0.8rem;">+92 313 9483901</p>
                 </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="card-white" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ghostsiddi110@gmail.com" target="_blank" class="card-dark" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
                     <i data-lucide="mail" style="width:32px;height:32px;color:#4285f4;margin:0 auto 0.5rem;"></i>
-                    <h3 style="font-weight:700;color:var(--text-dark);">Email</h3>
-                    <p style="color:var(--text-mid);font-size:0.8rem;">ghostsiddi110@gmail.com</p>
+                    <h3 style="font-weight:700;color:var(--text);">Email</h3>
+                    <p style="color:var(--text-muted);font-size:0.8rem;">ghostsiddi110@gmail.com</p>
                 </a>
-                <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="card-white" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
+                <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank" class="card-dark" style="padding:1.5rem;text-align:center;text-decoration:none;display:block;">
                     <i data-lucide="instagram" style="width:32px;height:32px;color:#c13584;margin:0 auto 0.5rem;"></i>
-                    <h3 style="font-weight:700;color:var(--text-dark);">Instagram</h3>
-                    <p style="color:var(--text-mid);font-size:0.8rem;">@walhallasmarshalsofficial</p>
+                    <h3 style="font-weight:700;color:var(--text);">Instagram</h3>
+                    <p style="color:var(--text-muted);font-size:0.8rem;">@walhallasmarshalsofficial</p>
                 </a>
             </div>
         </section>
@@ -813,9 +792,9 @@
         <div class="modal-content">
             <button class="modal-close" id="closeBlogModal">&times;</button>
             <span id="modalRegion" style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);"></span>
-            <h3 id="modalTitle" style="font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text-dark);margin:0.5rem 0;"></h3>
-            <p id="modalContent" style="color:var(--text-mid);line-height:1.7;margin-bottom:1rem;"></p>
-            <p id="modalExtra" style="color:var(--text-light);font-size:0.85rem;border-top:1px solid var(--gray-border);padding-top:1rem;"></p>
+            <h3 id="modalTitle" style="font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);margin:0.5rem 0;"></h3>
+            <p id="modalContent" style="color:var(--text-muted);line-height:1.7;margin-bottom:1rem;"></p>
+            <p id="modalExtra" style="color:var(--text-muted);font-size:0.85rem;border-top:1px solid rgba(230,0,0,0.2);padding-top:1rem;"></p>
         </div>
     </div>
 
@@ -831,184 +810,122 @@
     <!-- ═══ FOOTER ═══ -->
     <footer class="site-footer">
         <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;">
-            <div>
-                <h5>Club</h5>
-                <a href="#" data-page="club">About</a>
-                <a href="#" data-page="matches">Matches</a>
-                <a href="#" data-page="contact">Contact</a>
-            </div>
-            <div>
-                <h5>Content</h5>
-                <a href="#" data-page="stories">Stories</a>
-                <a href="#" data-page="shop">Shop</a>
-            </div>
-            <div>
-                <h5>Follow</h5>
-                <a href="https://instagram.com/walhallasmarshalsofficial" target="_blank">Instagram</a>
-                <a href="https://wa.me/923139483901" target="_blank">WhatsApp</a>
-            </div>
-            <div>
-                <h5>Legal</h5>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-            </div>
+            <div><h5>Club</h5><a href="#" data-page="club">About</a><a href="#" data-page="matches">Matches</a><a href="#" data-page="contact">Contact</a></div>
+            <div><h5>Content</h5><a href="#" data-page="stories">Stories</a><a href="#" data-page="shop">Shop</a></div>
+            <div><h5>Follow</h5><a href="https://instagram.com/walhallasmarshalsofficial" target="_blank">Instagram</a><a href="https://wa.me/923139483901" target="_blank">WhatsApp</a></div>
+            <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
         </div>
-        <div style="max-width:1280px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:0.75rem;">
+        <div style="max-width:1280px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(230,0,0,0.2);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:0.75rem;">
             <span>© 2026 Walhallas Marshal FC. All rights reserved.</span>
             <span>Official Site of the Marshal Movement</span>
         </div>
     </footer>
 
-    <!-- ═══ SCRIPTS ═══ -->
+    <!-- ═══ SCRIPTS (identical) ═══ -->
     <script>
-        // ── DATA (unchanged) ──
         const products = [
-            { image: "jersey-home-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit",
-                title: "Home Kit 2024", description: "Dri‑FIT ADV · Embroidered Crest", price: 45 },
-            { image: "jersey-away-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit",
-                title: "Away Kit 2024", description: "Dri‑FIT · Lightweight", price: 45 },
-            { image: "jersey-training-kit.jpg",
-                fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit",
-                title: "Training Kit", description: "Breathable · Movement Fit", price: 45 },
-            { image: "jersey-gk-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=GK+Kit",
-                title: "GK Kit 2024", description: "Breathable · Goalkeeper Fit", price: 45 },
-            { image: "jersey-street-kit.jpg",
-                fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition",
-                title: "Street Edition", description: "Limited · Urban Style", price: 45 }
+            { image: "jersey-home-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=Home+Kit", title: "Home Kit 2024", description: "Dri‑FIT ADV · Embroidered Crest", price: 45 },
+            { image: "jersey-away-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/ffffff?text=Away+Kit", title: "Away Kit 2024", description: "Dri‑FIT · Lightweight", price: 45 },
+            { image: "jersey-training-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/444444?text=Training+Kit", title: "Training Kit", description: "Breathable · Movement Fit", price: 45 },
+            { image: "jersey-gk-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/d00000?text=GK+Kit", title: "GK Kit 2024", description: "Breathable · Goalkeeper Fit", price: 45 },
+            { image: "jersey-street-kit.jpg", fallback: "https://via.placeholder.com/400x500/1a1a1a/f1c40f?text=Street+Edition", title: "Street Edition", description: "Limited · Urban Style", price: 45 }
         ];
-
         const matchReports = [
-            { title: "Walhallas Marshal FC 19 - 4 Shaani FC", date: "Historic Win",
-                venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
-                summary: "Captain Ghost Marshal scored 6 goals and provided 15 assists in a dominant display. Hash earned MVP with a sensational 8‑goal performance.",
-                highlight: "The Marshals were unstoppable from the first whistle.",
-                stats: [{ label: "Hash (MVP)", value: "8 ⚽" }, { label: "Ghost",
-                value: "6 ⚽" }, { label: "Qasim", value: "3 ⚽" }, { label: "Rafay",
-                value: "1 ⚽" }, { label: "Ghost Assists", value: "15 🅰️" }, { label: "Full Time",
-                value: "19 - 4" }] },
-            { title: "Walhallas FC 12 - 15 Shaani FC", date: "Recent Match",
-                venue: "Fire Ball Arena, Gulshan‑e‑Iqbal",
-                summary: "A hard‑fought battle. Ghost Marshal topped the assist charts and every player contributed to the scoresheet.",
-                highlight: "A true team effort showcasing squad depth and fighting spirit.",
-                stats: [{ label: "Hash", value: "4 ⚽" }, { label: "Ghost (C)",
-                value: "2 ⚽" }, { label: "Qasim", value: "2 ⚽" }, { label: "Nyxarc Booty",
-                value: "1 ⚽" }, { label: "Syed Rehman", value: "1 ⚽" }, { label: "Rafay",
-                value: "1 ⚽" }, { label: "Shaffat", value: "1 ⚽" }] },
-            { title: "Walhallas FC 18 - 17 Sir Syed Inter Team", date: "Epic Comeback", venue: "WSSS",
-                summary: "Ghost Marshal & Hash scored 4 back‑to‑back goals in the final 4 minutes. MVP Ghost finished with 6 goals; Hash added 5.",
-                highlight: "The greatest comeback in club history.",
-                stats: [{ label: "Ghost (MVP)", value: "6 ⚽" }, { label: "Hash",
-                value: "5 ⚽" }, { label: "Qasim", value: "4 ⚽" }, { label: "Abdullah",
-                value: "1 ⚽" }, { label: "Syed Rehman", value: "1 ⚽" }, { label: "Nyxarc",
-                value: "1 ⚽" }] }
+            { title: "Walhallas Marshal FC 19 - 4 Shaani FC", date: "Historic Win", venue: "Fire Ball Arena, Gulshan‑e‑Iqbal", summary: "Captain Ghost Marshal scored 6 goals and provided 15 assists in a dominant display. Hash earned MVP with a sensational 8‑goal performance.", highlight: "The Marshals were unstoppable from the first whistle.", stats: [{label:"Hash (MVP)",value:"8 ⚽"},{label:"Ghost",value:"6 ⚽"},{label:"Qasim",value:"3 ⚽"},{label:"Rafay",value:"1 ⚽"},{label:"Ghost Assists",value:"15 🅰️"},{label:"Full Time",value:"19 - 4"}] },
+            { title: "Walhallas FC 12 - 15 Shaani FC", date: "Recent Match", venue: "Fire Ball Arena, Gulshan‑e‑Iqbal", summary: "A hard‑fought battle. Ghost Marshal topped the assist charts and every player contributed to the scoresheet.", highlight: "A true team effort showcasing squad depth and fighting spirit.", stats: [{label:"Hash",value:"4 ⚽"},{label:"Ghost (C)",value:"2 ⚽"},{label:"Qasim",value:"2 ⚽"},{label:"Nyxarc Booty",value:"1 ⚽"},{label:"Syed Rehman",value:"1 ⚽"},{label:"Rafay",value:"1 ⚽"},{label:"Shaffat",value:"1 ⚽"}] },
+            { title: "Walhallas FC 18 - 17 Sir Syed Inter Team", date: "Epic Comeback", venue: "WSSS", summary: "Ghost Marshal & Hash scored 4 back‑to‑back goals in the final 4 minutes. MVP Ghost finished with 6 goals; Hash added 5.", highlight: "The greatest comeback in club history.", stats: [{label:"Ghost (MVP)",value:"6 ⚽"},{label:"Hash",value:"5 ⚽"},{label:"Qasim",value:"4 ⚽"},{label:"Abdullah",value:"1 ⚽"},{label:"Syed Rehman",value:"1 ⚽"},{label:"Nyxarc",value:"1 ⚽"}] }
         ];
-
         const upcomingFixtures = [
-            { title: "Most Awaited Match", date: "Friendly · Upcoming", time: "8 – 9 PM",
-                home: "Walhallas Marshal FC", away: "Rookie FC",
-                venue: "Spirit Field Indoor Futsal Court",
-                lineup: "Lineup: Ghost Marshal (C), Rafay Siddiqui, Nyxarc, Shaffat, Zain JR",
-                description: "The Marshals take on Rookie FC in a high‑intensity friendly match. Don't miss the debut of our new squad on the futsal court." }
+            { title: "Most Awaited Match", date: "Friendly · Upcoming", time: "8 – 9 PM", home: "Walhallas Marshal FC", away: "Rookie FC", venue: "Spirit Field Indoor Futsal Court", lineup: "Lineup: Ghost Marshal (C), Rafay Siddiqui, Nyxarc, Shaffat, Zain JR", description: "The Marshals take on Rookie FC in a high‑intensity friendly match. Don't miss the debut of our new squad on the futsal court." }
         ];
-
         const blogResearchPosts = [
-            { title: "Karachi: The Cradle of Pakistan Football", region: "Karachi",
-                summary: "How Lyari's street football, Karachi United, and the legacy of the National Football Championship shaped the nation's talent pipeline.",
-                content: "Karachi is more than Pakistan's largest city — it is the undisputed home of football culture. The narrow streets of Lyari have produced countless international stars, playing barefoot on concrete until discovered. Clubs like Karachi United became the blueprint for community‑driven football, while departmental sides such as KPT and K-Electric dominated the Pakistan Premier League. Today, grassroots initiatives and corporate sponsorships are reviving the city's football scene.",
-                highlightText: "Karachi United's youth academy alone has produced 20+ national‑level players.",
-                image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Lahore's Football Heritage", region: "Lahore",
-                summary: "Tracing the decline and revival of Lahore's football, from the National Football Championship era to the new academy ecosystem.",
-                content: "Lahore's football history is deeply tied to the golden age of the National Football Championship. Clubs like Wohaib FC became household names and won national titles. The decline of departmental sports in the 2000s hit Lahore hard, but the last five years have seen a resurgence driven by private academies. Street football still thrives in areas like Model Town and Johar Town.",
-                highlightText: "Wohaib FC's championship win in 1982 is still celebrated as a milestone.",
-                image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Islamabad: Where Academies Are Redefining the Game", region: "Islamabad",
-                summary: "Profiling the capital's state‑of‑the‑art academies, university leagues, and the drive to create a modern football infrastructure.",
-                content: "Islamabad has emerged as Pakistan's football laboratory. The Islamabad Football Academy brought UEFA‑licensed coaches to Pakistan. University football at NUST, FAST, and QAU produces national‑level talent. The renovated Jinnah Stadium is being upgraded to AFC standards.",
-                highlightText: "IFA's alumni have signed professional contracts in the UAE Second Division.",
-                image: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Peshawar: Where Football Unites KPK", region: "Peshawar",
-                summary: "Exploring the resilience of Peshawar's football culture, tribal tournaments, and how the sport bridges communities.",
-                content: "Peshawar's football calendar is built around tribal tournaments such as the KP Football Cup. Clubs like PAF and PIA traditionally recruit heavily from Peshawar. Shakir Khan's rise to the Maldives League inspires the next generation. Despite limited infrastructure, passion for the game endures.",
-                highlightText: "Arbab Niaz Stadium has produced more national‑level footballers than any venue outside Karachi.",
-                image: "https://images.unsplash.com/photo-1519070030696-2e01a5c6e7ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Quetta & Balochistan: The Untapped Frontier", region: "Quetta",
-                summary: "Documenting the growing football movement in Balochistan, from mountain academies to professional contracts.",
-                content: "Balochistan is the most under‑represented province in Pakistani football, yet its passion for the game is immense. The Quetta Football Academy has become a beacon of hope. Muhammad Younis recently trialled for a Turkish club. The Balochistan Football Cup is the province's premier competition.",
-                highlightText: "Quetta's Muhammad Younis was the first player from Balochistan to trial for a European club in over a decade.",
-                image: "https://images.unsplash.com/photo-1590080696882-eb7b5e7b19ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "The Fight for Fair Play: Ending Corruption in Pakistan Football",
-                region: "Nationwide",
-                summary: "An honest look at the corruption crisis — biased selections, funding mismanagement — and the roadmap to reform.",
-                content: "Corruption has plagued Pakistan football at every level. FIFA's 2015 suspension was a wake‑up call. The path forward begins with transparent open trials, independent financial audits, and fan‑driven accountability. Only when the system becomes accountable will Pakistan's genuine talent rise to the world stage.",
-                highlightText: "FIFA's suspension from 2015 to 2018 cost Pakistan international matches and development funding.",
-                image: "https://images.unsplash.com/photo-1559430560-49c9d117ab18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+            { title:"Karachi: The Cradle of Pakistan Football", region:"Karachi", summary:"How Lyari's street football, Karachi United, and the legacy of the National Football Championship shaped the nation's talent pipeline.", content:"Karachi is more than Pakistan's largest city — it is the undisputed home of football culture. The narrow streets of Lyari have produced countless international stars, playing barefoot on concrete until discovered. Clubs like Karachi United became the blueprint for community‑driven football, while departmental sides such as KPT and K-Electric dominated the Pakistan Premier League. Today, grassroots initiatives and corporate sponsorships are reviving the city's football scene.", highlightText:"Karachi United's youth academy alone has produced 20+ national‑level players.", image:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title:"Lahore's Football Heritage", region:"Lahore", summary:"Tracing the decline and revival of Lahore's football, from the National Football Championship era to the new academy ecosystem.", content:"Lahore's football history is deeply tied to the golden age of the NFC. Clubs like Wohaib FC became household names and won national titles. The decline of departmental sports in the 2000s hit Lahore hard, but the last five years have seen a resurgence driven by private academies. Street football still thrives in areas like Model Town and Johar Town.", highlightText:"Wohaib FC's championship win in 1982 is still celebrated as a milestone.", image:"https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title:"Islamabad: Where Academies Are Redefining the Game", region:"Islamabad", summary:"Profiling the capital's state‑of‑the‑art academies, university leagues, and the drive to create a modern football infrastructure.", content:"Islamabad has emerged as Pakistan's football laboratory. The IFA brought UEFA‑licensed coaches to Pakistan. University football at NUST and FAST produces national‑level talent.", highlightText:"IFA's alumni have signed professional contracts in the UAE Second Division.", image:"https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title:"Peshawar: Where Football Unites KPK", region:"Peshawar", summary:"Exploring the resilience of Peshawar's football culture, tribal tournaments, and how the sport bridges communities.", content:"Peshawar's football calendar is built around tribal tournaments such as the KP Football Cup. Clubs like PAF and PIA traditionally recruit heavily from Peshawar. Shakir Khan's rise to the Maldives League inspires the next generation.", highlightText:"Arbab Niaz Stadium has produced more national‑level footballers than any venue outside Karachi.", image:"https://images.unsplash.com/photo-1519070030696-2e01a5c6e7ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title:"Quetta & Balochistan: The Untapped Frontier", region:"Quetta", summary:"Documenting the growing football movement in Balochistan, from mountain academies to professional contracts.", content:"Balochistan is the most under‑represented province in Pakistani football, yet its passion is immense. The Quetta Football Academy has become a beacon of hope.", highlightText:"Quetta's Muhammad Younis was the first player from Balochistan to trial for a European club in over a decade.", image:"https://images.unsplash.com/photo-1590080696882-eb7b5e7b19ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title:"The Fight for Fair Play: Ending Corruption in Pakistan Football", region:"Nationwide", summary:"An honest look at the corruption crisis — biased selections, funding mismanagement — and the roadmap to reform.", content:"Corruption has plagued Pakistan football at every level. FIFA's 2015 suspension was a wake‑up call. The path forward begins with transparent open trials, independent audits, and fan‑driven accountability.", highlightText:"FIFA's suspension from 2015 to 2018 cost Pakistan international matches and development funding.", image:"https://images.unsplash.com/photo-1559430560-49c9d117ab18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+        ];
+        const players = [
+            { name:"Ghost Marshal", position:"Midfielder", stats:{passing:9,shooting:8,dribbling:9,speed:10,defence:8,physicality:6}, ovr:83, role:"President", highlight:true },
+            { name:"Qasim Marshal", position:"Forward (C)", stats:{passing:9,shooting:7,dribbling:9,speed:7,defence:8,physicality:9}, ovr:82, role:"Captain", highlight:true },
+            { name:"Hash Marshal", position:"Forward", stats:{passing:6,shooting:7,dribbling:8,speed:9,defence:6,physicality:7}, ovr:72 },
+            { name:"Kabeer Marshal", position:"Defender", stats:{passing:6,shooting:6,dribbling:4,speed:10,defence:10,physicality:5}, ovr:68 },
+            { name:"Syed Rehman Marshal", position:"Defender", stats:{passing:6,shooting:5,dribbling:7,speed:6,defence:5,physicality:5}, ovr:57 },
+            { name:"Abbasi Marshal", position:"Forward", stats:{passing:7,shooting:6,dribbling:8,speed:6,defence:5,physicality:7}, ovr:65 },
+            { name:"Shaffat Marshal", position:"Forward", stats:{passing:5,shooting:7,dribbling:7,speed:7,defence:5,physicality:6}, ovr:62 },
+            { name:"Zain", position:"Trial", stats:null, ovr:"Trial" },
+            { name:"Rafay Siddiqui Marshal", position:"Defender", stats:{passing:6,shooting:4,dribbling:2,speed:5,defence:6,physicality:8}, ovr:52 }
         ];
 
-        // ── ICONS ──
-        function initIcons() { try { if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch (
-            e) {} }
+        function initIcons() { try { if(typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons(); } catch(e) {} }
 
-        // ── RENDER ──
+        function renderPlayerCards() {
+            const container = document.getElementById('playerCardsContainer');
+            if (!container) return;
+            container.innerHTML = players.map(p => {
+                let statsHtml = '';
+                if (p.stats) {
+                    const labels = ['passing','shooting','dribbling','speed','defence','physicality'];
+                    statsHtml = labels.map(s => `<span style="font-size:0.65rem; color:var(--text-muted); text-transform:capitalize;">${s}: <strong>${p.stats[s]}</strong></span>`).join(' · ');
+                }
+                return `
+                <div class="card-dark" style="padding:1rem; ${p.highlight ? 'border-left: 4px solid var(--red);' : ''}">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                        <span style="font-weight:700; font-size:0.95rem; color:var(--text);">${p.name}</span>
+                        <span style="background:var(--red); color:#fff; font-size:0.8rem; font-weight:700; padding:0.2rem 0.5rem; border-radius:6px;">OVR ${p.ovr}</span>
+                    </div>
+                    <div style="font-size:0.7rem; color:var(--red); font-weight:600; text-transform:uppercase; margin-bottom:0.5rem;">${p.position}</div>
+                    ${p.stats ? `<div style="font-size:0.7rem; color:var(--text-muted);">${statsHtml}</div>` : `<div style="font-size:0.7rem; color:var(--text-muted);">Stats coming soon</div>`}
+                </div>`;
+            }).join('');
+        }
+
         function renderHomeMatchCards() {
-            const c = document.getElementById('homeMatchCards');
-            if (!c) return;
+            const c = document.getElementById('homeMatchCards'); if (!c) return;
             let html = '';
-            // upcoming first
-            upcomingFixtures.forEach(f => {
-                html += `<div class="match-card"><span class="match-date">${f.title}</span><div class="match-teams"><span>${f.home}</span><span style="color:var(--red);">VS</span><span>${f.away}</span></div><span class="match-venue">${f.time} · ${f.venue}</span></div>`;
-            });
-            // then recent results
-            matchReports.slice(0, 3).forEach(r => {
-                const score = r.stats.find(s => s.label === 'Full Time')?.value || r.title.split(
-                    ' ').pop();
-                html +=
-                    `<div class="match-card"><span class="match-date">${r.date}</span><div class="match-teams"><span>${r.title.replace('Walhallas Marshal FC ','').replace('Walhallas FC ','')}</span><span class="match-score">${score}</span></div><span class="match-venue">${r.venue}</span></div>`;
-            });
-            c.innerHTML = html;
-            initIcons();
+            upcomingFixtures.forEach(f => html += `<div class="match-card"><span class="match-date">${f.title}</span><div class="match-teams"><span>${f.home}</span><span style="color:var(--red);">VS</span><span>${f.away}</span></div><span class="match-venue">${f.time} · ${f.venue}</span></div>`);
+            matchReports.slice(0,3).forEach(r => { const score = r.stats.find(s=>s.label==='Full Time')?.value || r.title.split(' ').pop(); html += `<div class="match-card"><span class="match-date">${r.date}</span><div class="match-teams"><span>${r.title.replace('Walhallas Marshal FC ','').replace('Walhallas FC ','')}</span><span class="match-score">${score}</span></div><span class="match-venue">${r.venue}</span></div>`; });
+            c.innerHTML = html; initIcons();
         }
 
         function renderFullMatchReports() {
-            const c = document.getElementById('fullMatchReports');
-            if (!c) return;
+            const c = document.getElementById('fullMatchReports'); if (!c) return;
             c.innerHTML = matchReports.map(r => `
-            <div class="card-white" style="padding:1.5rem;">
+            <div class="card-dark" style="padding:1.5rem;">
               <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">${r.date}</span>
-              <h3 style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);margin:0.3rem 0;">${r.title}</h3>
-              <p style="color:var(--text-mid);font-size:0.85rem;margin-bottom:0.5rem;"><i data-lucide="map-pin" style="display:inline;width:14px;height:14px;margin-right:4px;"></i>${r.venue}</p>
-              <p style="color:var(--text-mid);font-size:0.85rem;line-height:1.5;">${r.summary}</p>
-              <p style="color:var(--text-light);font-size:0.8rem;margin-top:0.5rem;">${r.highlight}</p>
-              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;">${r.stats.map(s=>`<span style="background:#f0f2f5;padding:0.35rem 0.75rem;border-radius:6px;font-size:0.75rem;font-weight:600;">${s.value} <span style="color:var(--text-light);font-weight:400;">${s.label}</span></span>`).join('')}</div>
+              <h3 style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);margin:0.3rem 0;">${r.title}</h3>
+              <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;"><i data-lucide="map-pin" style="display:inline;width:14px;height:14px;margin-right:4px;"></i>${r.venue}</p>
+              <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5;">${r.summary}</p>
+              <p style="color:var(--text-muted);font-size:0.8rem;margin-top:0.5rem;">${r.highlight}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;">${r.stats.map(s=>`<span style="background:#1a1a1a;padding:0.35rem 0.75rem;border-radius:6px;font-size:0.75rem;font-weight:600;">${s.value} <span style="color:var(--text-muted);font-weight:400;">${s.label}</span></span>`).join('')}</div>
             </div>`).join('');
             initIcons();
         }
 
         function renderUpcomingFixtures() {
-            const c = document.getElementById('upcomingFixturesContainer');
-            if (!c) return;
+            const c = document.getElementById('upcomingFixturesContainer'); if (!c) return;
             c.innerHTML = upcomingFixtures.map(f => `
-            <div class="card-white" style="padding:1.25rem;">
+            <div class="card-dark" style="padding:1.25rem;">
               <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">${f.title}</span>
               <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0.75rem 0;">
                 <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:1.1rem;">${f.home}</span>
-                <span style="font-family:'Oswald',sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);">VS</span>
+                <span style="font-family:'Oswald',sans-serif;font-weight:800;font-size:1.3rem;color:var(--red);">VS</span>
                 <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:1.1rem;">${f.away}</span>
               </div>
-              <p style="color:var(--text-mid);font-size:0.8rem;"><i data-lucide="map-pin" style="display:inline;width:14px;height:14px;margin-right:4px;"></i>${f.venue}</p>
-              <p style="color:var(--text-mid);font-size:0.8rem;">${f.time} · ${f.date}</p>
-              <p style="color:var(--text-light);font-size:0.8rem;font-style:italic;">${f.description}</p>
-              <p style="color:var(--text-dark);font-size:0.8rem;font-weight:600;">${f.lineup}</p>
+              <p style="color:var(--text-muted);font-size:0.8rem;"><i data-lucide="map-pin" style="display:inline;width:14px;height:14px;margin-right:4px;"></i>${f.venue}</p>
+              <p style="color:var(--text-muted);font-size:0.8rem;">${f.time} · ${f.date}</p>
+              <p style="color:var(--text-muted);font-size:0.8rem;font-style:italic;">${f.description}</p>
+              <p style="color:var(--text);font-size:0.8rem;font-weight:600;">${f.lineup}</p>
             </div>`).join('');
             initIcons();
         }
 
         function renderNewsCards(containerId, limit) {
-            const c = document.getElementById(containerId);
-            if (!c) return;
-            const posts = limit ? blogResearchPosts.slice(0, limit) : blogResearchPosts;
-            c.innerHTML = posts.map((p, i) => `
-            <article class="card-white" style="cursor:pointer;" onclick="openBlogModal(${i})">
+            const c = document.getElementById(containerId); if (!c) return;
+            const posts = limit ? blogResearchPosts.slice(0,limit) : blogResearchPosts;
+            c.innerHTML = posts.map((p,i) => `
+            <article class="card-dark" style="cursor:pointer;" onclick="openBlogModal(${i})">
               <img src="${p.image||'https://picsum.photos/seed/pk'+i+'/600/400'}" alt="${p.title}" class="card-img" loading="lazy" onerror="this.src='https://picsum.photos/seed/pk'+i+'/600/400'">
               <div class="card-body">
                 <span class="card-tag">${p.region}</span>
@@ -1020,15 +937,14 @@
         }
 
         function renderShopCards(containerId, limit) {
-            const c = document.getElementById(containerId);
-            if (!c) return;
-            const items = limit ? products.slice(0, limit) : products;
+            const c = document.getElementById(containerId); if (!c) return;
+            const items = limit ? products.slice(0,limit) : products;
             c.innerHTML = items.map(p => `
             <div class="shop-card">
               <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='${p.fallback}'">
               <div style="padding:0.75rem;">
-                <strong style="color:var(--text-dark);">${p.title}</strong>
-                <p style="font-size:0.75rem;color:var(--text-mid);">${p.description}</p>
+                <strong style="color:var(--text);">${p.title}</strong>
+                <p style="font-size:0.75rem;color:var(--text-muted);">${p.description}</p>
                 <p style="font-weight:800;color:var(--red);font-size:1.2rem;">$${p.price}</p>
                 <a href="https://wa.me/923139483901?text=I%20want%20to%20order%20the%20${encodeURIComponent(p.title)}%20($${p.price})" target="_blank" style="display:inline-block;padding:0.5rem 1rem;background:var(--red);color:#fff;border-radius:6px;font-size:0.75rem;font-weight:700;text-decoration:none;">Order via WhatsApp</a>
               </div>
@@ -1036,10 +952,8 @@
             initIcons();
         }
 
-        // ── BLOG MODAL ──
         function openBlogModal(index) {
-            const p = blogResearchPosts[index];
-            if (!p) return;
+            const p = blogResearchPosts[index]; if (!p) return;
             document.getElementById('modalRegion').textContent = p.region + ' · Insight';
             document.getElementById('modalTitle').textContent = p.title;
             document.getElementById('modalContent').textContent = p.content || p.summary;
@@ -1047,22 +961,13 @@
             document.getElementById('blogModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-        document.getElementById('closeBlogModal').addEventListener('click', () => {
-            document.getElementById('blogModal').classList.remove('open');
-            document.body.style.overflow = '';
-        });
-        document.getElementById('blogModal').addEventListener('click', function(e) { if (e.target === this) {
-                this.classList.remove('open');
-                document.body.style.overflow = ''; } });
+        document.getElementById('closeBlogModal').addEventListener('click', () => { document.getElementById('blogModal').classList.remove('open'); document.body.style.overflow = ''; });
+        document.getElementById('blogModal').addEventListener('click', function(e) { if(e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; } });
 
-        // ── NEWSLETTER ──
         function showNewsletterStatus() {
-            const msg = document.getElementById('newsletterMsg');
-            if (!msg) return;
+            const msg = document.getElementById('newsletterMsg'); if (!msg) return;
             if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
-                msg.style.display = 'block';
-                msg.style.color = '#4caf50';
-                msg.textContent = '✅ Thank you! Your subscription was received.';
+                msg.style.display = 'block'; msg.style.color = '#4caf50'; msg.textContent = '✅ Thank you! Your subscription was received.';
             }
         }
         const newsletterForm = document.getElementById('newsletterForm');
@@ -1073,18 +978,15 @@
                 const subField = this.querySelector('input[name="subscriber_email"]');
                 const autoField = this.querySelector('input[name="_autoresponse"]');
                 if (emailInput && subField) subField.value = emailInput.value;
-                if (nameInput && autoField) autoField.value =
-                    `Thanks ${nameInput.value.trim()||'Marshal Fan'} for joining!`;
+                if (nameInput && autoField) autoField.value = `Thanks ${nameInput.value.trim()||'Marshal Fan'} for joining!`;
             });
         }
 
-        // ── NAVIGATION ──
         function navigateTo(pageName) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
             const target = document.getElementById(pageName + '-page');
             if (target) target.classList.add('active-page');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            // update desktop nav active
             document.querySelectorAll('#desktopNav a').forEach(l => l.classList.remove('active-link'));
             const navLink = document.querySelector(`#desktopNav a[data-page="${pageName}"]`);
             if (navLink) navLink.classList.add('active-link');
@@ -1092,56 +994,26 @@
             setTimeout(initIcons, 50);
         }
 
-        // ── MOBILE MENU ──
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobilePanel = document.getElementById('mobilePanel');
         const mobileOverlay = document.getElementById('mobileOverlay');
         let menuOpen = false;
-
-        function openMobileMenu() {
-            menuOpen = true;
-            mobilePanel.classList.add('open');
-            mobileOverlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            menuOpen = false;
-            mobilePanel.classList.remove('open');
-            mobileOverlay.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => menuOpen ? closeMobileMenu() :
-            openMobileMenu());
+        function openMobileMenu() { menuOpen = true; mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMobileMenu() { menuOpen = false; mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => menuOpen ? closeMobileMenu() : openMobileMenu());
         if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
-        document.querySelectorAll('#mobilePanel a[data-page]').forEach(a => a.addEventListener('click', function(
-        e) {
-            e.preventDefault();
-            const page = this.getAttribute('data-page');
-            if (page) navigateTo(page);
-        }));
+        document.querySelectorAll('#mobilePanel a[data-page]').forEach(a => a.addEventListener('click', function(e) { e.preventDefault(); const page = this.getAttribute('data-page'); if (page) navigateTo(page); }));
 
-        // ── DESKTOP & BOTTOM BAR NAV ──
         document.querySelectorAll('[data-page]').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                const page = this.getAttribute('data-page');
-                if (page) navigateTo(page);
-            });
+            el.addEventListener('click', function(e) { e.preventDefault(); const page = this.getAttribute('data-page'); if (page) navigateTo(page); });
         });
-        document.getElementById('logoLink').addEventListener('click', function(e) { e.preventDefault();
-            navigateTo('home'); });
-        document.getElementById('navCta').addEventListener('click', function(e) { e.preventDefault();
-            navigateTo('home');
-            setTimeout(() => { const nl = document.getElementById('newsletter'); if (nl) nl.scrollIntoView({
-                    behavior: 'smooth' }); }, 200); });
+        document.getElementById('logoLink').addEventListener('click', function(e) { e.preventDefault(); navigateTo('home'); });
+        document.getElementById('navCta').addEventListener('click', function(e) { e.preventDefault(); navigateTo('home'); setTimeout(() => { const nl = document.getElementById('newsletter'); if (nl) nl.scrollIntoView({ behavior: 'smooth' }); }, 200); });
 
-        // ── FADE‑IN OBSERVER ──
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting)
-                entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // ── INIT ──
+        renderPlayerCards();
         renderHomeMatchCards();
         renderFullMatchReports();
         renderUpcomingFixtures();
