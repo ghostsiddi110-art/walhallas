@@ -196,12 +196,14 @@
             height: 20px;
         }
 
-        /* ── Hero Section ── */
+        /* ── Hero Section (with logo background) ── */
         .hero-section {
             margin-top: 56px;
             position: relative;
             min-height: 420px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, rgba(10,10,10,0.75) 0%, rgba(26,0,0,0.75) 50%, rgba(10,10,10,0.75) 100%), url('logo.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -620,7 +622,7 @@
     <!-- ═══ HOME PAGE ═══ -->
     <div id="home-page" class="page active-page">
 
-        <!-- HERO -->
+        <!-- HERO (logo visible as background) -->
         <section class="hero-section">
             <div class="hero-content">
                 <span class="hero-badge">⚽ Pakistan's Finest · Est. 2024</span>
@@ -637,7 +639,7 @@
             </div>
         </section>
 
-        <!-- ═══ MATCH RESULTS & UPCOMING ═══ -->
+        <!-- ═══ MATCH RESULTS & UPCOMING (horizontal scroll) ═══ -->
         <section style="max-width:1280px;margin:0 auto;padding:2rem 1rem;" class="fade-in" id="matchScroll">
             <div class="section-header">
                 <div>
@@ -649,7 +651,7 @@
             <div class="match-scroll" style="display:flex;gap:1rem;overflow-x:auto;padding-bottom:0.5rem;" id="homeMatchCards"></div>
         </section>
 
-        <!-- ═══ MARSHAL STORIES ═══ -->
+        <!-- ═══ MARSHAL STORIES (news grid) ═══ -->
         <section style="max-width:1280px;margin:0 auto;padding:1.5rem 1rem 2.5rem;" class="fade-in">
             <div class="section-header">
                 <div>
